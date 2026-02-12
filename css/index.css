@@ -1,0 +1,386 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&display=swap');
+
+html {
+    scrollbar-gutter: stable;
+    background-color: rgba(255, 255, 255, 0)
+}
+
+body {
+    background-color: #fdfaf1;
+    background-image: radial-gradient(#e1d9c1 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Kiwi Maru', serif;
+    color: #333;
+    line-height: 1.8;
+    padding: 20px;
+    padding-left: 114px;
+    padding-right: 74px;
+    font-size: clamp(0.75rem, 0.614rem + 0.68vw, 1.125rem);
+    /* margin: auto; は幅指定がないため削除 */
+}
+
+.notebook-container {
+    background: white;
+    padding: 30px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 8px solid #ffcccc;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* 見出しの基本 */
+h1 {
+    background-color: #e3f2fd;
+    padding: 25px 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.6em;
+    border-bottom: 4px solid #bbdefb;
+    margin: 10px 0 30px; /* marginを一括指定 */
+}
+
+h2 {
+    background-color: #f1f8e9;
+    padding: 12px 20px;
+    border-left: 8px solid #c5e1a5;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-radius: 0 8px 8px 0;
+}
+
+h3 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: #2c3e50;
+}
+
+/* 特殊なh2（一括指定を上書き） */
+.all-summary-content h2,
+.exam-no h2 {
+    background-color: #eeeeee;
+}
+
+.all-summary-content h2 {
+    margin-top: 20px;
+    padding: 6px 20px;
+    border: 2px solid #808080;
+    border-left: 2px solid #808080; /* 元の border-left を打ち消すため */
+    border-radius: 8px;
+}
+
+.exam-no h2 {
+    border-left: 8px solid #bdbdbd;
+}
+
+/* 共通パーツ */
+.exam-yes, .exam-no {
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 12px;
+}
+
+.exam-yes {
+    background-color: #fff5f5;
+    border: 2px solid #ef9a9a;
+    position: relative;
+}
+
+.exam-yes::before {
+    content: '📌 CHECK';
+    position: absolute;
+    top: -12px; left: 20px;
+    background: #ef9a9a;
+    color: white;
+    padding: 2px 12px;
+    font-size: 0.8em;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.exam-no {
+    background-color: #fafafa;
+    border: 2px solid #ddd;
+    color: #666;
+}
+
+.important {
+    font-weight: bold;
+    background: linear-gradient(transparent 60%, #fff176 0%);
+}
+
+/* リンク関連の統合 */
+.nav-links a,
+.all-summary-content a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 1;
+    font-size: clamp(0.7rem, 0.545rem + 0.77vw, 1.125rem);
+}
+
+.all-summary-content a {
+    color: #2c3e50;
+    padding: 0; /* 特定の箇所の余白調整 */
+}
+
+.nav-links a:hover,
+.all-summary-content a:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+/* ボタンバリエーション */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.blank {
+    padding:0% 5%;
+}
+
+.source-link { 
+    background-color: #eee;
+    color: #666;
+}
+.next-link { 
+    background-color: #eee;
+    color: #666;
+}
+.back-link { 
+    background-color: #eee;
+    color: #666;
+}
+
+.pdf-link { 
+    background-color: #795548;
+    color: white !important;
+    border: none !important;
+}
+
+.all-summary {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dotted #e1d9c1;
+}
+
+/* ハンバーガーボタン（親） */
+.btn-trigger {
+  position: fixed;
+  width: 50px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 1000;
+  left: 36px;
+  top: 36px;
+}
+.btn-trigger.active {
+  left: 220px;
+}
+.btn-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  border-radius: 4px;
+}
+.btn-trigger, .btn-trigger span {
+  display: inline-block;
+  transition: all .5s;
+  box-sizing: border-box;
+}
+.btn-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.btn-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.btn-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+#btn09.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(315deg);
+  transform: translateY(20px) rotate(315deg);
+}
+#btn09.active span:nth-of-type(2) {
+  opacity: 0;
+}
+#btn09.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(-315deg);
+  transform: translateY(-20px) rotate(-315deg);
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 84px;
+    margin: 17px;
+    margin-top: 12.5px;
+    height: 90px;
+    background: #ffffffec;
+    z-index: 999;
+    transition: 0.4s;
+    transition: padding-top 1s, left 0.5s, height 0.5s, width 0.5s;
+    overflow-y: auto;
+    padding-top: 0px;
+    border: 1px solid #6969693d;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.side-menu h2 {
+    border-left: 0px;
+    padding-left: 0px;
+    background-color: #fff;
+    transition: 0.4s;
+    transition: background-color 0.3s ease, border-left 0s ease, font-size 0.3s;
+    font-size: 0px;
+}
+.side-menu.active { 
+    background: #ffffffec;
+    width: 280px;
+    height: 100%;
+    padding-top: 65px;
+    cursor: auto;
+}
+.side-menu.active h2 { 
+    border-left: 10px solid #c5e1a5;
+    padding-left: 20px;
+    background-color: #f1f8e9;
+    font-size: 1.3em;
+}
+.side-menu::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 背景オーバーレイ */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 998;
+}
+.overlay.active { display: block; }
+
+/* メニュー内のリストスタイル */
+.menu-list { list-style: none; padding: 0px; height:0px;}
+.side-menu.active .menu-list {
+    padding: 15px 10px;
+}
+.menu-folder { cursor: pointer; margin-bottom: 10px; font-weight: bold; }
+.folder-toggle { font-size: 0px; border-radius: 10px; padding: 0px 0px; transition: 0.2s; transition: font-size 0s, color 3s; color: #ffffffec;
+    transition-delay:0.3s;
+    transition-property: font-size;
+}
+.side-menu.active .folder-toggle{
+    color: #333;
+    font-size: 1.3em;
+    padding: 0px 10px;
+}
+.folder-toggle:hover {
+    background-color:#52525228;
+}
+.folder-toggle span { font-size: 0.8em; transition: 0.3s; display: inline-block; 
+    transition-delay:0.1s;
+    transition-property: transform;
+}
+.folder-toggle span.active {
+    transform:translateX(150px) rotate(90deg);
+}
+.submenu { 
+    list-style: none; 
+    padding-left: 10px; 
+    margin-top: 5px; 
+    font-weight: normal; 
+    transition: 3s;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease, opacity 0.2s;
+    opacity: 0;
+}
+.submenu.open {
+    opacity: 1;
+}
+.submenu a { text-decoration: none; color: #ffffffec; display: block; padding: 5px 10px; margin-bottom: 5px;
+    transition: color 0.2s ease-in;
+}
+.side-menu.active .submenu a {
+    color: #555;
+}
+.submenu a:hover { 
+    text-decoration: none; 
+    color: #555; 
+    display: block; 
+    background-color: #52525228; 
+    border-radius: 10px; 
+    padding: 5px 10px;
+}
+.speaker {
+    color: #970c25;
+    font-weight: 500;
+    opacity: 0;
+}
+.side-menu.active .speaker {
+    opacity: 1;
+}
+.date {
+    margin-right: 6px;
+    font-weight: 600;
+}
+.notice-bar {
+    position: fixed;
+    top: -60px; /* 最初は画面の上に隠す */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #373737b8;
+    color: white;
+    padding: 12px 80px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    z-index: 9999;
+    transition: top 0.5s ease; /* スライドの速度 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* クラスがついた時に表示位置へ移動 */
+.notice-bar.show {
+    top: 5px;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    body { padding: 10px;}
+    .notebook-container { padding: 20px; }
+    h1 { font-size: 1.3em; }
+    .btn-trigger {
+        top:90%;
+    }
+    .side-menu{
+        top:calc(90% - 35px);
+    }
+    .side-menu.active {
+        top:0px;
+        transition: 0.5s ease-out;
+    }
+    .blank {
+        padding: 0%;
+    }
+    .nav-links {
+        gap: 2px;
+    }
+}
