@@ -187,7 +187,7 @@ h1 {
 .side-menu.active { 
     background: #ffffffec;
     width: 280px;
-    height: 100%;
+    height: 90%;
     padding-top: 65px;
     cursor: auto;
 }
@@ -282,7 +282,7 @@ h1 {
 }
 .notice-bar {
     position: fixed;
-    top: -60px; /* 最初は画面の上に隠す */
+    top: -50%; /* 最初は画面の上に隠す */
     left: 50%;
     transform: translateX(-50%);
     background-color: #373737b8;
