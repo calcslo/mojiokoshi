@@ -14,8 +14,6 @@ body {
     color: #333;
     line-height: 1.8;
     padding: 20px;
-    padding-left: 114px;
-    padding-right: 74px;
     font-size: clamp(0.75rem, 0.614rem + 0.68vw, 1.125rem);
     /* margin: auto; は幅指定がないため削除 */
 }
@@ -249,7 +247,7 @@ h3 {
 .side-menu.active { 
     background: #ffffffec;
     width: 280px;
-    height: 90%;
+    height: 88%;
     padding-top: 65px;
     cursor: auto;
 }
