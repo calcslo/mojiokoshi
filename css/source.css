@@ -47,6 +47,7 @@ h1 {
     text-underline-offset: 0.2rem;
     -webkit-text-stroke: 0.3rem rgb(255, 0, 0);
     paint-order: stroke;
+    padding: 0px 3px;
 }
 
 
