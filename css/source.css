@@ -39,6 +39,17 @@ h1 {
     margin: 0 0 20px; /* 上0、左右0、下20px */
 }
 
+.important {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: underline wavy #4d9bc1;
+    text-underline-offset: 0.2rem;
+    -webkit-text-stroke: 0.3rem;
+    paint-order: stroke;
+}
+
+
 /* 長文・原文表示用の設定 */
 .source-content {
     white-space: pre-wrap;
