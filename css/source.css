@@ -40,12 +40,12 @@ h1 {
 }
 
 .important {
-    font-weight: bold;
+    font-weight: 100;
     font-size: 1.2rem;
     color: white;
     text-decoration: underline wavy #4d9bc1;
     text-underline-offset: 0.2rem;
-    -webkit-text-stroke: 0.3rem;
+    -webkit-text-stroke: 0.3rem rgb(255, 0, 0);
     paint-order: stroke;
 }
 
