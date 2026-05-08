@@ -8,122 +8,134 @@
     <title>MOJIOKOSHI NOTE</title>
     <style>
       /* ====== index.html 専用追加スタイル ====== */
-      body { background: #f5f6f8; }
+      body {
+        background-color: #fdfaf1;
+        background-image: radial-gradient(#e1d9c1 1px, transparent 1px);
+        background-size: 20px 20px;
+        font-family: 'Kiwi Maru', serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .notebook-container {
+        background: white;
+        padding: 30px 40px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        border-left: 8px solid #ffcccc;
+        border-radius: 4px;
+        position: relative;
+        max-width: 1200px;
+        margin: 40px auto;
+        min-height: 80vh;
+      }
+
+      h1.notebook-title {
+        background-color: #e3f2fd;
+        padding: 20px 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 1.8em;
+        border-bottom: 4px solid #bbdefb;
+        margin: 0 0 30px;
+        color: #1e3050;
+      }
+      h1.notebook-title span { color: #1976d2; }
 
       .main-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 16px;
-        padding: 28px 24px;
-        max-width: 1400px;
-        margin: 0 auto;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 10px 0;
       }
 
       .subject-card {
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        border-radius: 12px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         overflow: hidden;
-        transition: transform 0.18s, box-shadow 0.18s;
-        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
       }
       .subject-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       }
       .subject-card-header {
-        background: linear-gradient(135deg, #1e3050, #3a5490);
-        color: #fff;
-        padding: 14px 16px 12px;
-        font-size: 15px;
+        background-color: #f1f8e9;
+        color: #333;
+        padding: 14px 16px;
+        font-size: 16px;
         font-weight: 700;
         display: flex;
         align-items: center;
         gap: 8px;
+        border-bottom: 1px solid #dcedc8;
+        border-left: 6px solid #c5e1a5;
       }
       .subject-card-header .count {
         margin-left: auto;
-        background: rgba(255,255,255,0.18);
+        background: #fff;
+        border: 1px solid #c5e1a5;
         border-radius: 20px;
-        padding: 2px 10px;
-        font-size: 12px;
-        font-weight: 500;
+        padding: 1px 8px;
+        font-size: 11px;
+        color: #558b2f;
       }
       .subject-card-body {
-        padding: 8px 0;
+        padding: 5px 0;
       }
       .lecture-link {
         display: block;
-        padding: 9px 16px;
-        font-size: 12px;
-        color: #2e4270;
+        padding: 10px 16px;
+        font-size: 13px;
+        color: #444;
         text-decoration: none;
-        border-bottom: 1px solid #f0f2f5;
-        transition: background 0.14s;
-        line-height: 1.5;
+        border-bottom: 1px solid #f5f5f5;
+        transition: background 0.2s;
+        line-height: 1.4;
       }
       .lecture-link:last-child { border-bottom: none; }
-      .lecture-link:hover { background: #eef2fa; }
-      .lecture-link .lec-date {
-        font-size: 10.5px;
-        color: #7a96b8;
+      .lecture-link:hover { background: #f9fbf7; }
+      
+      .lec-date {
+        font-size: 11px;
+        color: #777;
         display: block;
-        margin-bottom: 1px;
+        margin-bottom: 2px;
+        font-weight: 600;
       }
-      .lecture-link .lec-speaker {
-        font-size: 10.5px;
-        color: #8a9ab8;
-      }
-      .lecture-link .lec-name {
+      .lec-name {
+        display: block;
         font-weight: 500;
-        color: #1e2d42;
+        color: #222;
+        margin-bottom: 2px;
+      }
+      .lec-speaker {
+        font-size: 11px;
+        color: #970c25;
+        font-weight: 500;
       }
 
-      .page-header {
-        background: #1e3050;
-        color: #fff;
-        padding: 16px 24px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-      .page-header h1 {
-        font-size: 20px;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-      }
-      .page-header h1 span { color: #7fb3e8; }
       .last-updated {
-        margin-left: auto;
+        text-align: right;
         font-size: 11px;
-        color: #7a96b8;
+        color: #999;
+        margin-bottom: 10px;
       }
 
       .empty-state {
+        grid-column: 1 / -1;
         text-align: center;
-        color: #a0b0c8;
-        padding: 60px 20px;
-        font-size: 14px;
+        color: #bbb;
+        padding: 80px 20px;
       }
-      .empty-state .icon { font-size: 48px; display: block; margin-bottom: 12px; }
+      .empty-state .icon { font-size: 48px; display: block; margin-bottom: 10px; }
 
-      /* お知らせバー（リンク未準備） */
-      .notice-bar {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%) translateY(60px);
-        background: #2c3e50;
-        color: #fff;
-        padding: 10px 24px;
-        border-radius: 24px;
-        font-size: 13px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-        white-space: nowrap;
+      @media (max-width: 600px) {
+        .notebook-container { padding: 15px; margin: 10px; }
+        h1.notebook-title { font-size: 1.4em; }
+        .main-grid { grid-template-columns: 1fr; }
       }
-      .notice-bar.show { transform: translateX(-50%) translateY(0); }
     </style>
 </head>
 <body>
@@ -145,17 +157,18 @@
 <div class="overlay" id="overlay" onclick="closeMenu(document.getElementById('btn09'))"></div>
 
 <!-- ページ本体 -->
-<div class="page-header">
-    <h1>MOJIOKOSHI <span>NOTE</span></h1>
-    <span class="last-updated" id="lastUpdated">--</span>
-</div>
-
-<div id="mainGrid" class="main-grid">
-    <div class="empty-state">
-        <span class="icon">📚</span>
-        <span>講義ノートを読み込み中...</span>
+<div class="notebook-container">
+    <div class="last-updated" id="lastUpdated">--</div>
+    <h1 class="notebook-title">MOJIOKOSHI <span>NOTE</span></h1>
+    
+    <div id="mainGrid" class="main-grid">
+        <div class="empty-state">
+            <span class="icon">📚</span>
+            <span>講義ノートを読み込み中...</span>
+        </div>
     </div>
 </div>
+
 
 <script>
     /* ============================================================

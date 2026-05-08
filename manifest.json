@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-08T22:07:57.502140+09:00",
+  "generated": "2026-05-09T02:45:18.467343",
   "subjects": [
     {
       "name": "内分泌",
@@ -7,91 +7,91 @@
         {
           "path": "./html/内分泌/040901内分泌_index.html",
           "date": "4月9日1限",
-          "name": "内分泌",
+          "name": "内分泌・代謝内科学総論",
           "speaker": "田中智洋"
         },
         {
           "path": "./html/内分泌/040902内分泌_index.html",
           "date": "4月9日2限",
-          "name": "内分泌",
+          "name": "消化管ホルモンおよび産生腫瘍",
           "speaker": "小山博之"
         },
         {
           "path": "./html/内分泌/040903内分泌_index.html",
           "date": "4月9日3限",
-          "name": "内分泌",
+          "name": "視床下部・下垂体1",
           "speaker": "高木博史"
         },
         {
           "path": "./html/内分泌/040904内分泌_index.html",
           "date": "4月9日4限",
-          "name": "内分泌",
+          "name": "視床下部・下垂体2",
           "speaker": "高木博史"
         },
         {
           "path": "./html/内分泌/041002内分泌_index.html",
           "date": "4月10日2限",
-          "name": "内分泌",
+          "name": "副腎1",
           "speaker": "田中智洋"
         },
         {
           "path": "./html/内分泌/041601内分泌_index.html",
           "date": "4月16日1限",
-          "name": "内分泌",
+          "name": "甲状腺1",
           "speaker": "佐々木茂和"
         },
         {
           "path": "./html/内分泌/041602内分泌_index.html",
           "date": "4月16日2限",
-          "name": "内分泌",
+          "name": "甲状腺2",
           "speaker": "今枝憲郎"
         },
         {
           "path": "./html/内分泌/041702内分泌_index.html",
           "date": "4月17日2限",
-          "name": "内分泌",
+          "name": "糖尿病治療の目標",
           "speaker": "田中智洋"
         },
         {
           "path": "./html/内分泌/041703内分泌_index.html",
           "date": "4月17日3限",
-          "name": "内分泌",
+          "name": "小児の甲状腺疾患",
           "speaker": "鈴木敦詞"
         },
         {
           "path": "./html/内分泌/041704内分泌_index.html",
           "date": "4月17日4限",
-          "name": "内分泌",
+          "name": "小児の成長ホルモン治療",
           "speaker": "鈴木敦詞"
         },
         {
           "path": "./html/内分泌/042304内分泌_index.html",
           "date": "4月23日4限",
-          "name": "内分泌",
+          "name": "高アンモニア血症・アミノ酸代謝異常",
           "speaker": "伊藤哲哉"
         },
         {
           "path": "./html/内分泌/042401内分泌_index.html",
           "date": "4月24日1限",
-          "name": "内分泌",
+          "name": "肥満、やせ、メタボリックシンドローム",
           "speaker": "水野達央"
         },
         {
           "path": "./html/内分泌/042402内分泌_index.html",
           "date": "4月24日2限",
-          "name": "内分泌",
+          "name": "ミネラル代謝異常、骨代謝異常、副甲状腺疾患",
           "speaker": "八木崇志"
         },
         {
           "path": "./html/内分泌/042403内分泌_index.html",
           "date": "4月24日3限",
-          "name": "内分泌",
+          "name": "まれな内分泌疾患から学ぶGPCRの精巧な調節機構",
           "speaker": "横田紀子"
         },
         {
           "path": "./html/内分泌/042404内分泌_index.html",
           "date": "4月24日4限",
-          "name": "内分泌",
+          "name": "代謝性肝疾患",
           "speaker": "野尻俊輔"
         }
       ]
@@ -102,163 +102,163 @@
         {
           "path": "./html/呼吸器/010603呼吸器_index.html",
           "date": "1月6日3限",
-          "name": "呼吸器",
+          "name": "呼吸器疾患の特徴と魅力、総論・症候",
           "speaker": "大久保 仁嗣"
         },
         {
           "path": "./html/呼吸器/010604呼吸器_index.html",
           "date": "1月6日4限",
-          "name": "呼吸器",
+          "name": "呼吸器疾患の診断と検査",
           "speaker": "福光 研介"
         },
         {
           "path": "./html/呼吸器/010703呼吸器_index.html",
           "date": "1月7日3限",
-          "name": "呼吸器",
+          "name": "胸部エックス線・呼吸不全",
           "speaker": "森 祐太"
         },
         {
           "path": "./html/呼吸器/010704呼吸器_index.html",
           "date": "1月7日4限",
-          "name": "呼吸器",
+          "name": "肺癌総論",
           "speaker": "羽田 裕司"
         },
         {
           "path": "./html/呼吸器/011304呼吸器_index.html",
           "date": "1月13日4限",
-          "name": "呼吸器",
+          "name": "びまん性肺疾患(総論)",
           "speaker": "大久保 仁嗣"
         },
         {
           "path": "./html/呼吸器/011403呼吸器_index.html",
           "date": "1月14日3限",
-          "name": "呼吸器",
+          "name": "気管支喘息",
           "speaker": "田尻 智子"
         },
         {
           "path": "./html/呼吸器/011404呼吸器_index.html",
           "date": "1月14日4限",
-          "name": "小児",
+          "name": "小児呼吸器外科疾患",
           "speaker": "高木 大輔"
         },
         {
           "path": "./html/呼吸器/012003呼吸器_index.html",
           "date": "1月20日3限",
-          "name": "呼吸器",
+          "name": "呼吸器感染症(抗酸菌感染症以外)",
           "speaker": "中村 敦"
         },
         {
           "path": "./html/呼吸器/012004呼吸器_index.html",
           "date": "1月20日4限",
-          "name": "呼吸器",
+          "name": "肺実質、横隔膜疾患（小児）",
           "speaker": "加藤 晋"
         },
         {
           "path": "./html/呼吸器/012103呼吸器_index.html",
           "date": "1月21日3限",
-          "name": "呼吸器",
+          "name": "新生児呼吸生理",
           "speaker": "加藤 文典"
         },
         {
           "path": "./html/呼吸器/012104呼吸器_index.html",
           "date": "1月21日4限",
-          "name": "呼吸器",
+          "name": "新生児呼吸疾患",
           "speaker": "加藤 文典"
         },
         {
           "path": "./html/呼吸器/012703呼吸器_index.html",
           "date": "1月27日3限",
-          "name": "呼吸器",
+          "name": "びまん性肺疾患(各論)",
           "speaker": "大久保 仁嗣"
         },
         {
           "path": "./html/呼吸器/012704呼吸器_index.html",
           "date": "1月27日4限",
-          "name": "呼吸器",
+          "name": "じん肺と石綿(アスベスト)関連疾患",
           "speaker": "横山 多佳子"
         },
         {
           "path": "./html/呼吸器/012803呼吸器_index.html",
           "date": "1月28日3限",
-          "name": "呼吸器",
+          "name": "肺癌（症候・診断）",
           "speaker": "福田 悟史"
         },
         {
           "path": "./html/呼吸器/012804呼吸器_index.html",
           "date": "1月28日4限",
-          "name": "呼吸器",
+          "name": "その他のアレルギー疾患・COPD",
           "speaker": "金光 禎寛"
         },
         {
           "path": "./html/呼吸器/020303呼吸器_index.html",
           "date": "2月3日3限",
-          "name": "呼吸器",
+          "name": "気管支拡張症・嚢胞性肺疾患",
           "speaker": "金光 禎寛"
         },
         {
           "path": "./html/呼吸器/020403呼吸器_index.html",
           "date": "2月4日3限",
-          "name": "呼吸器",
+          "name": "肺癌に対する集学的治療（個別化治療）",
           "speaker": "奥田 勝裕"
         },
         {
           "path": "./html/呼吸器/020404呼吸器_index.html",
           "date": "2月4日4限",
-          "name": "呼吸器",
+          "name": "肺癌外科治療",
           "speaker": "奥田 勝裕"
         },
         {
           "path": "./html/呼吸器/021003呼吸器_index.html",
           "date": "2月10日3限",
-          "name": "呼吸器",
+          "name": "縦隔（総論）",
           "speaker": "千馬 謙亮"
         },
         {
           "path": "./html/呼吸器/021004呼吸器_index.html",
           "date": "2月10日4限",
-          "name": "呼吸器",
+          "name": "気道疾患・喘息（小児）",
           "speaker": "谷田 寿志"
         },
         {
           "path": "./html/呼吸器/021302呼吸器_index.html",
           "date": "2月13日2限",
-          "name": "呼吸器",
+          "name": "呼吸器外科手術術前術中術後管理",
           "speaker": "横田 圭右"
         },
         {
           "path": "./html/呼吸器/021303呼吸器_index.html",
           "date": "2月13日3限",
-          "name": "感染症",
+          "name": "抗酸菌感染症",
           "speaker": "伊藤 圭馬"
         },
         {
           "path": "./html/呼吸器/021803呼吸器_index.html",
           "date": "2月18日3限",
-          "name": "呼吸器",
+          "name": "胸膜疾患（内科）",
           "speaker": "田尻 智子"
         },
         {
           "path": "./html/呼吸器/021804呼吸器_index.html",
           "date": "2月18日4限",
-          "name": "呼吸器",
+          "name": "縦隔（各論）",
           "speaker": "立松 勉"
         },
         {
           "path": "./html/呼吸器/021901呼吸器_index.html",
           "date": "2月19日1限",
-          "name": "呼吸器",
+          "name": "胸膜疾患（外科）",
           "speaker": "森山 悟"
         },
         {
           "path": "./html/呼吸器/022002呼吸器_index.html",
           "date": "2月20日2限",
-          "name": "呼吸器",
+          "name": "肺癌（化学療法）",
           "speaker": "樋田 豊明"
         },
         {
           "path": "./html/呼吸器/022003呼吸器_index.html",
           "date": "2月20日3限",
-          "name": "循環",
+          "name": "胸部外傷(各論)",
           "speaker": "中村 龍二"
         }
       ]
@@ -269,127 +269,127 @@
         {
           "path": "./html/小児/030201小児_index.html",
           "date": "3月2日1限",
-          "name": "小児",
+          "name": "水・電解質、脱水",
           "speaker": "岩田 欧介"
         },
         {
           "path": "./html/小児/030202小児_index.html",
           "date": "3月2日2限",
-          "name": "小児",
+          "name": "アレルギー疾患（喘息以外）",
           "speaker": "谷田 寿志"
         },
         {
           "path": "./html/小児/030203小児_index.html",
           "date": "3月2日3限",
-          "name": "小児",
+          "name": "肝・胆・膵",
           "speaker": "戸川 貴夫"
         },
         {
           "path": "./html/小児/030204小児_index.html",
           "date": "3月2日4限",
-          "name": "小児",
+          "name": "新生児と小児の蘇生療法",
           "speaker": "杉浦 崇浩"
         },
         {
           "path": "./html/小児/030303小児_index.html",
           "date": "3月3日3限",
-          "name": "小児",
+          "name": "性腺・副腎疾患",
           "speaker": "青山 幸平"
         },
         {
           "path": "./html/小児/030304小児_index.html",
           "date": "3月3日4限",
-          "name": "小児",
+          "name": "てんかん、その他の神経疾患",
           "speaker": "根岸 豊"
         },
         {
           "path": "./html/小児/030901小児_index.html",
           "date": "3月9日1限",
-          "name": "小児",
+          "name": "小児糖尿病",
           "speaker": "山口 直哉"
         },
         {
           "path": "./html/小児/030903小児_index.html",
           "date": "3月9日3限",
-          "name": "小児",
+          "name": "*小児外科 2",
           "speaker": "高木 大輔"
         },
         {
           "path": "./html/小児/030904小児_index.html",
           "date": "3月9日4限",
-          "name": "小児",
+          "name": "小児腎疾患",
           "speaker": "藤田 直也"
         },
         {
           "path": "./html/小児/031003小児_index.html",
           "date": "3月10日3限",
-          "name": "小児",
+          "name": "乳幼児健診、小児保健",
           "speaker": "齋藤 伸治"
         },
         {
           "path": "./html/小児/031004小児_index.html",
           "date": "3月10日4限",
-          "name": "小児",
+          "name": "小児消化管",
           "speaker": "伊藤 彰悟"
         },
         {
           "path": "./html/小児/031601小児_index.html",
           "date": "3月16日1限",
-          "name": "小児",
+          "name": "リウマチ性疾患",
           "speaker": "岩田 直美"
         },
         {
           "path": "./html/小児/031602小児_index.html",
           "date": "3月16日2限",
-          "name": "小児",
+          "name": "*小児外科 3",
           "speaker": "佐藤 陽子"
         },
         {
           "path": "./html/小児/031603小児_index.html",
           "date": "3月16日3限",
-          "name": "小児",
+          "name": "小児の特性 小児科の特徴",
           "speaker": "齋藤 伸治"
         },
         {
           "path": "./html/小児/031604小児_index.html",
           "date": "3月16日4限",
-          "name": "小児",
+          "name": "*小児外科 4",
           "speaker": "高木 大輔"
         },
         {
           "path": "./html/小児/031801小児_index.html",
           "date": "3月18日1限",
-          "name": "小児",
+          "name": "血液・腫瘍",
           "speaker": "亀井 美智"
         },
         {
           "path": "./html/小児/031802小児_index.html",
           "date": "3月18日2限",
-          "name": "小児",
+          "name": "成長 発達",
           "speaker": "岩田 欧介"
         },
         {
           "path": "./html/小児/032403小児_index.html",
           "date": "3月24日3限",
-          "name": "小児",
+          "name": "細菌感染症",
           "speaker": "家田 大輔"
         },
         {
           "path": "./html/小児/032404小児_index.html",
           "date": "3月24日4限",
-          "name": "小児",
+          "name": "新生児疾患～早産児 臨床推論",
           "speaker": "岩田 欧介"
         },
         {
           "path": "./html/小児/032501小児_index.html",
           "date": "3月25日1限",
-          "name": "小児",
+          "name": "児童精神・発達",
           "speaker": "大橋 圭"
         },
         {
           "path": "./html/小児/032502小児_index.html",
           "date": "3月25日2限",
-          "name": "小児",
+          "name": "虐待、児童福祉",
           "speaker": "宮地 泰士"
         }
       ]
@@ -400,199 +400,199 @@
         {
           "path": "./html/循環/010503循環_index.html",
           "date": "1月5日3限",
-          "name": "循環",
+          "name": "心機能異常と循環障害（物理学的な捉え方を中心に）",
           "speaker": "杉本"
         },
         {
           "path": "./html/循環/010504循環_index.html",
           "date": "1月5日4限",
-          "name": "循環",
+          "name": "心機能異常と循環障害（神経体液性因子、薬理を中心に）",
           "speaker": "瀬尾"
         },
         {
           "path": "./html/循環/010801循環_index.html",
           "date": "1月8日1限",
-          "name": "循環",
+          "name": "電気伝導系の異常",
           "speaker": "後藤"
         },
         {
           "path": "./html/循環/010802循環_index.html",
           "date": "1月8日2限",
-          "name": "循環",
+          "name": "動脈硬化と心筋虚血",
           "speaker": "伊藤"
         },
         {
           "path": "./html/循環/011501循環_index.html",
           "date": "1月15日1限",
-          "name": "循環",
+          "name": "心電図 P, QRS, ST-T-Uの異常",
           "speaker": "山下"
         },
         {
           "path": "./html/循環/011502循環_index.html",
           "date": "1月15日2限",
-          "name": "循環",
+          "name": "心エコー",
           "speaker": "松井"
         },
         {
           "path": "./html/循環/011903循環_index.html",
           "date": "1月19日3限",
-          "name": "循環",
+          "name": "現病歴、身体所見、胸部XP、血液検査",
           "speaker": "瀬尾"
         },
         {
           "path": "./html/循環/011904循環_index.html",
           "date": "1月19日4限",
-          "name": "循環",
+          "name": "心電図 リズム異常",
           "speaker": "関本"
         },
         {
           "path": "./html/循環/012201循環_index.html",
           "date": "1月22日1限",
-          "name": "循環",
+          "name": "核医学、CT、MRI",
           "speaker": "横井"
         },
         {
           "path": "./html/循環/012202循環_index.html",
           "date": "1月22日2限",
-          "name": "循環",
+          "name": "心臓カテーテル検査",
           "speaker": "横井"
         },
         {
           "path": "./html/循環/01230201循環_index.html",
           "date": "1月23日2限",
-          "name": "循環",
+          "name": "虚血性心疾患 内科",
           "speaker": "伊藤"
         },
         {
           "path": "./html/循環/01230202循環_index.html",
           "date": "1月23日2限",
-          "name": "循環",
+          "name": "虚血性心疾患 外科",
           "speaker": "中井"
         },
         {
           "path": "./html/循環/012603循環_index.html",
           "date": "1月26日3限",
-          "name": "循環",
+          "name": "大動脈疾患",
           "speaker": "神谷"
         },
         {
           "path": "./html/循環/01260401循環_index.html",
           "date": "1月26日4限",
-          "name": "循環",
+          "name": "末梢血管（動静脈、DVT含む）内科",
           "speaker": "市橋"
         },
         {
           "path": "./html/循環/01260402循環_index.html",
           "date": "1月26日4限",
-          "name": "循環",
+          "name": "末梢血管（動静脈、DVT含む）外科",
           "speaker": "佐々木"
         },
         {
           "path": "./html/循環/012901循環_index.html",
           "date": "1月29日1限",
-          "name": "循環",
+          "name": "高血圧の治療",
           "speaker": "溝口"
         },
         {
           "path": "./html/循環/012902循環_index.html",
           "date": "1月29日2限",
-          "name": "循環",
+          "name": "不整脈の薬物療法",
           "speaker": "吉田"
         },
         {
           "path": "./html/循環/013002循環_index.html",
           "date": "1月30日2限",
-          "name": "循環",
+          "name": "不整脈の非薬物療法",
           "speaker": "後藤"
         },
         {
           "path": "./html/循環/02020301循環_index.html",
           "date": "2月2日3限",
-          "name": "循環",
+          "name": "弁膜症 大動脈弁疾患の病態と治療（カテ治療含む）",
           "speaker": "蜂矢"
         },
         {
           "path": "./html/循環/02020302循環_index.html",
           "date": "2月2日3限",
-          "name": "循環",
+          "name": "弁膜症 大動脈弁疾患の病態と治療（カテ治療含む）",
           "speaker": "伊藤(TAVI)"
         },
         {
           "path": "./html/循環/020204循環_index.html",
           "date": "2月2日4限",
-          "name": "循環",
+          "name": "弁膜症 僧帽弁、三尖弁の病態と治療（カテ治療含む）",
           "speaker": "河田"
         },
         {
           "path": "./html/循環/020503循環_index.html",
           "date": "2月5日3限",
-          "name": "循環",
+          "name": "心筋症、心筋炎、感染性心内膜炎",
           "speaker": "北田"
         },
         {
           "path": "./html/循環/020504循環_index.html",
           "date": "2月5日4限",
-          "name": "循環",
+          "name": "弁膜症の外科治療",
           "speaker": "前川"
         },
         {
           "path": "./html/循環/020602循環_index.html",
           "date": "2月6日2限",
-          "name": "循環",
+          "name": "心不全 左心不全の病態と治療",
           "speaker": "北田"
         },
         {
           "path": "./html/循環/020903循環_index.html",
           "date": "2月9日3限",
-          "name": "小児",
+          "name": "小児循環器学1 心臓発生と胎児循環",
           "speaker": "篠原"
         },
         {
           "path": "./html/循環/020904循環_index.html",
           "date": "2月9日4限",
-          "name": "小児",
+          "name": "小児循環器学2 先天性心疾患",
           "speaker": "篠原"
         },
         {
           "path": "./html/循環/021203循環_index.html",
           "date": "2月12日3限",
-          "name": "循環",
+          "name": "肺高血圧の病態と治療",
           "speaker": "山邊"
         },
         {
           "path": "./html/循環/021204循環_index.html",
           "date": "2月12日4限",
-          "name": "小児",
+          "name": "先天性心疾患の成人期医療",
           "speaker": "山邊"
         },
         {
           "path": "./html/循環/021603循環_index.html",
           "date": "2月16日3限",
-          "name": "循環",
+          "name": "循環器疾患の二次予防、心臓リハビリを含む",
           "speaker": "山下"
         },
         {
           "path": "./html/循環/021604循環_index.html",
           "date": "2月16日4限",
-          "name": "循環",
+          "name": "循環器コースの総括",
           "speaker": "瀬尾"
         },
         {
           "path": "./html/循環/021902循環_index.html",
           "date": "2月19日2限",
-          "name": "小児",
+          "name": "小児循環器学3 先天性心疾患の外科手術",
           "speaker": "板谷"
         },
         {
           "path": "./html/循環/021903循環_index.html",
           "date": "2月19日3限",
-          "name": "循環",
+          "name": "心臓外科学の総括",
           "speaker": "前川"
         },
         {
           "path": "./html/循環/021904循環_index.html",
           "date": "2月19日4限",
-          "name": "循環",
+          "name": "心不全 右心不全、心膜疾患",
           "speaker": "和田"
         }
       ]
@@ -603,49 +603,49 @@
         {
           "path": "./html/救急/010601救急_index.html",
           "date": "1月6日1限",
-          "name": "救急",
+          "name": "救急医療〜救急医療体制と救急医の役割〜",
           "speaker": "服部友紀"
         },
         {
           "path": "./html/救急/010602救急_index.html",
           "date": "1月6日2限",
-          "name": "救急",
+          "name": "災害医療〜災害現場での経験・南海トラフへの備え〜",
           "speaker": "山岸庸太"
         },
         {
           "path": "./html/救急/011301救急_index.html",
           "date": "1月13日1限",
-          "name": "救急",
+          "name": "救急医療〜心肺蘇生・2次救命処置〜",
           "speaker": "船越拓"
         },
         {
           "path": "./html/救急/011302救急_index.html",
           "date": "1月13日2限",
-          "name": "救急",
+          "name": "これからの救急医療のあり方",
           "speaker": "船越拓"
         },
         {
           "path": "./html/救急/011901救急_index.html",
           "date": "1月19日1限",
-          "name": "救急",
+          "name": "救急医療〜外傷・Acute Care Surgery〜",
           "speaker": "秋山 真之"
         },
         {
           "path": "./html/救急/011902救急_index.html",
           "date": "1月19日2限",
-          "name": "救急",
+          "name": "救急医療〜頭部外傷・急性脳卒中〜",
           "speaker": "井上泰豪"
         },
         {
           "path": "./html/救急/012001救急_index.html",
           "date": "1月20日1限",
-          "name": "救急",
+          "name": "救急医療〜急性中毒〜",
           "speaker": "笹野寛"
         },
         {
           "path": "./html/救急/012002救急_index.html",
           "date": "1月20日2限",
-          "name": "救急",
+          "name": "救急医療〜Interventional Radiology (IVR)〜",
           "speaker": "岩井健司"
         }
       ]
@@ -656,55 +656,55 @@
         {
           "path": "./html/泌尿器/010901泌尿器_index.html",
           "date": "1月9日1限",
-          "name": "腎",
+          "name": "腎・泌尿器の解剖・生理、症候・検査",
           "speaker": "安井 孝周"
         },
         {
           "path": "./html/泌尿器/010902泌尿器_index.html",
           "date": "1月9日2限",
-          "name": "腎",
+          "name": "腎・泌尿器の炎症と外傷",
           "speaker": "岡田 淳志"
         },
         {
           "path": "./html/泌尿器/011601泌尿器_index.html",
           "date": "1月16日1限",
-          "name": "腎",
+          "name": "尿路結石の成因",
           "speaker": "海野 怜"
         },
         {
           "path": "./html/泌尿器/011602泌尿器_index.html",
           "date": "1月16日2限",
-          "name": "腎",
+          "name": "尿路結石の治療",
           "speaker": "濵本 周造"
         },
         {
           "path": "./html/泌尿器/013001泌尿器_index.html",
           "date": "1月30日1限",
-          "name": "腎",
+          "name": "副腎疾患・腎腫瘍",
           "speaker": "河合 憲康"
         },
         {
           "path": "./html/泌尿器/020601泌尿器_index.html",
           "date": "2月6日1限",
-          "name": "腎",
+          "name": "腎不全・腎移植",
           "speaker": "安藤 亮介"
         },
         {
           "path": "./html/泌尿器/021301泌尿器_index.html",
           "date": "2月13日1限",
-          "name": "腎",
+          "name": "腎・泌尿器の発生",
           "speaker": "水野 健太郎"
         },
         {
           "path": "./html/泌尿器/021304泌尿器_index.html",
           "date": "2月13日4限",
-          "name": "腎",
+          "name": "腎盂・尿管・膀胱腫瘍",
           "speaker": "内木 拓"
         },
         {
           "path": "./html/泌尿器/022004泌尿器_index.html",
           "date": "2月20日4限",
-          "name": "腎",
+          "name": "腎・泌尿器の先天異常",
           "speaker": "西尾 英紀"
         }
       ]
@@ -715,133 +715,133 @@
         {
           "path": "./html/消化器/030401消化器_index.html",
           "date": "3月4日1限",
-          "name": "消化器",
+          "name": "直腸・肛門 大腸外科1（直腸・肛門）",
           "speaker": "山川雄士"
         },
         {
           "path": "./html/消化器/030402消化器_index.html",
           "date": "3月4日2限",
-          "name": "消化器",
+          "name": "舌の診かたについて",
           "speaker": "横井基夫"
         },
         {
           "path": "./html/消化器/030403消化器_index.html",
           "date": "3月4日3限",
-          "name": "消化器",
+          "name": "小腸・大腸疾患",
           "speaker": "尾関啓司"
         },
         {
           "path": "./html/消化器/030404消化器_index.html",
           "date": "3月4日4限",
-          "name": "消化器",
+          "name": "胆道1",
           "speaker": "林 香月"
         },
         {
           "path": "./html/消化器/030501消化器_index.html",
           "date": "3月5日1限",
-          "name": "消化器",
+          "name": "肝臓外科",
           "speaker": "加藤知克"
         },
         {
           "path": "./html/消化器/030504消化器_index.html",
           "date": "3月5日4限",
-          "name": "消化器",
+          "name": "腹部外傷 腹部救急",
           "speaker": "松居亮平"
         },
         {
           "path": "./html/消化器/030601消化器_index.html",
           "date": "3月6日1限",
-          "name": "消化器",
+          "name": "外科治療最前線（AI、ロボット/遠隔）",
           "speaker": "牛込創"
         },
         {
           "path": "./html/消化器/030602消化器_index.html",
           "date": "3月6日2限",
-          "name": "消化器",
+          "name": "膵炎",
           "speaker": "内藤 格"
         },
         {
           "path": "./html/消化器/030603消化器_index.html",
           "date": "3月6日3限",
-          "name": "消化器",
+          "name": "膵腫瘍",
           "speaker": "吉道弘"
         },
         {
           "path": "./html/消化器/030604消化器_index.html",
           "date": "3月6日4限",
-          "name": "消化器",
+          "name": "肝硬変と合併疾患",
           "speaker": "野尻俊輔"
         },
         {
           "path": "./html/消化器/031101消化器_index.html",
           "date": "3月11日1限",
-          "name": "消化器",
+          "name": "食道、胃 消化器疾患と消化管内視鏡",
           "speaker": "杉村直美"
         },
         {
           "path": "./html/消化器/031102消化器_index.html",
           "date": "3月11日2限",
-          "name": "消化器",
+          "name": "口腔所見と病態",
           "speaker": "竹本 隆"
         },
         {
           "path": "./html/消化器/031201消化器_index.html",
           "date": "3月12日1限",
-          "name": "消化器",
+          "name": "炎症性腸疾患",
           "speaker": "尾関啓司"
         },
         {
           "path": "./html/消化器/031202消化器_index.html",
           "date": "3月12日2限",
-          "name": "消化器",
+          "name": "食道、胃 ピロリ感染症",
           "speaker": "久保田英嗣"
         },
         {
           "path": "./html/消化器/031203消化器_index.html",
           "date": "3月12日3限",
-          "name": "消化器",
+          "name": "ウイルス性肝疾患",
           "speaker": "祖父江聡"
         },
         {
           "path": "./html/消化器/031204消化器_index.html",
           "date": "3月12日4限",
-          "name": "消化器",
+          "name": "胆道2",
           "speaker": "中沢貴宏"
         },
         {
           "path": "./html/消化器/031903消化器_index.html",
           "date": "3月19日3限",
-          "name": "消化器",
+          "name": "膵臓外科",
           "speaker": "佐藤崇文"
         },
         {
           "path": "./html/消化器/031904消化器_index.html",
           "date": "3月19日4限",
-          "name": "消化器",
+          "name": "胆道外科",
           "speaker": "齊藤健太"
         },
         {
           "path": "./html/消化器/032701消化器_index.html",
           "date": "3月27日1限",
-          "name": "消化器",
+          "name": "外科治療最前線（AI、ロボット/遠隔）",
           "speaker": "佐藤怜央"
         },
         {
           "path": "./html/消化器/032702消化器_index.html",
           "date": "3月27日2限",
-          "name": "消化器",
+          "name": "小腸・ヘルニア 小腸外科・ヘルニア",
           "speaker": "早川俊輔"
         },
         {
           "path": "./html/消化器/032703消化器_index.html",
           "date": "3月27日3限",
-          "name": "消化器",
+          "name": "食道外科",
           "speaker": "小川 了"
         },
         {
           "path": "./html/消化器/032704消化器_index.html",
           "date": "3月27日4限",
-          "name": "消化器",
+          "name": "外科総論 外科総論",
           "speaker": "瀧口修司"
         }
       ]
@@ -852,49 +852,49 @@
         {
           "path": "./html/疼痛/012601疼痛_index.html",
           "date": "1月26日1限",
-          "name": "疼痛",
+          "name": "疼痛医学総論: 痛み医療総論",
           "speaker": "杉浦健之"
         },
         {
           "path": "./html/疼痛/012602疼痛_index.html",
           "date": "1月26日2限",
-          "name": "疼痛",
+          "name": "診断: 痛みの病態と評価",
           "speaker": "佐藤玲子"
         },
         {
           "path": "./html/疼痛/020201疼痛_index.html",
           "date": "2月2日1限",
-          "name": "疼痛",
+          "name": "治療法(1): 痛みの運動療法",
           "speaker": "堀場充哉"
         },
         {
           "path": "./html/疼痛/020202疼痛_index.html",
           "date": "2月2日2限",
-          "name": "疼痛",
+          "name": "治療法(2): 痛みの薬物療法・インターベンショナル治療",
           "speaker": "徐 民恵"
         },
         {
           "path": "./html/疼痛/020901疼痛_index.html",
           "date": "2月9日1限",
-          "name": "精神",
+          "name": "医療現場における行動科学",
           "speaker": "酒井美枝"
         },
         {
           "path": "./html/疼痛/020902疼痛_index.html",
           "date": "2月9日2限",
-          "name": "精神",
+          "name": "行動の基本原理",
           "speaker": "酒井美枝"
         },
         {
           "path": "./html/疼痛/021601疼痛_index.html",
           "date": "2月16日1限",
-          "name": "疼痛",
+          "name": "慢性痛と精神-心理・社会的要因",
           "speaker": "酒井美枝"
         },
         {
           "path": "./html/疼痛/021602疼痛_index.html",
           "date": "2月16日2限",
-          "name": "疼痛",
+          "name": "慢性痛への行動科学的アプローチ",
           "speaker": "酒井美枝"
         }
       ]
@@ -905,49 +905,49 @@
         {
           "path": "./html/皮膚/040603皮膚_index.html",
           "date": "4月6日3限",
-          "name": "皮膚",
+          "name": "皮膚形成外科",
           "speaker": "鳥山"
         },
         {
           "path": "./html/皮膚/040604皮膚_index.html",
           "date": "4月6日4限",
-          "name": "皮膚",
+          "name": "皮膚がんの治療：抗がん剤と腫瘍免疫",
           "speaker": "中村"
         },
         {
           "path": "./html/皮膚/041301皮膚_index.html",
           "date": "4月13日1限",
-          "name": "皮膚",
+          "name": "皮膚科で行う検査は？",
           "speaker": "真柄"
         },
         {
           "path": "./html/皮膚/041302皮膚_index.html",
           "date": "4月13日2限",
-          "name": "皮膚",
+          "name": "アトピー性皮膚炎の診断から治療戦略まで：病態に基づくアプローチ",
           "speaker": "澤田（非常勤講師）"
         },
         {
           "path": "./html/皮膚/041303皮膚_index.html",
           "date": "4月13日3限",
-          "name": "皮膚",
+          "name": "蕁麻疹・薬疹・紅斑症・紅皮症を理解する：皮膚免疫と炎症反応の関係",
           "speaker": "西尾（非常勤講師）"
         },
         {
           "path": "./html/皮膚/041304皮膚_index.html",
           "date": "4月13日4限",
-          "name": "皮膚",
+          "name": "皮膚良性腫瘍・母斑・母斑症を読み解く：病態、診断、治療のすべて",
           "speaker": "真柄"
         },
         {
           "path": "./html/皮膚/042001皮膚_index.html",
           "date": "4月20日1限",
-          "name": "皮膚",
+          "name": "光線療法とレーザー治療の基礎と応用：皮膚疾患への活用法",
           "speaker": "森田"
         },
         {
           "path": "./html/皮膚/042002皮膚_index.html",
           "date": "4月20日2限",
-          "name": "皮膚",
+          "name": "皮膚症状から考える皮膚科疾患への治療アプローチ",
           "speaker": "森田"
         }
       ]
@@ -958,49 +958,49 @@
         {
           "path": "./html/神経内科/031902神経内科_index.html",
           "date": "3月19日2限",
-          "name": "神経内科",
+          "name": "神経系の検査法(2)",
           "speaker": "川嶋 将司"
         },
         {
           "path": "./html/神経内科/032602神経内科_index.html",
           "date": "3月26日2限",
-          "name": "神経内科",
+          "name": "脊髄小脳変性症",
           "speaker": "川嶋 将司"
         },
         {
           "path": "./html/神経内科/040801神経内科_index.html",
           "date": "4月8日1限",
-          "name": "神経内科",
+          "name": "アルツハイマー型認知症",
           "speaker": "松川 則之"
         },
         {
           "path": "./html/神経内科/040803神経内科_index.html",
           "date": "4月8日3限",
-          "name": "神経内科",
+          "name": "脊髄疾患",
           "speaker": "水野 将行"
         },
         {
           "path": "./html/神経内科/040804神経内科_index.html",
           "date": "4月8日4限",
-          "name": "神経内科",
+          "name": "末梢神経・自律神経疾患",
           "speaker": "藤岡 哲平"
         },
         {
           "path": "./html/神経内科/041403神経内科_index.html",
           "date": "4月14日3限",
-          "name": "神経内科",
+          "name": "脳血管内治療",
           "speaker": "大村 眞弘"
         },
         {
           "path": "./html/神経内科/041504神経内科_index.html",
           "date": "4月15日4限",
-          "name": "神経内科",
+          "name": "筋疾患",
           "speaker": "佐藤 豊大"
         },
         {
           "path": "./html/神経内科/042201神経内科_index.html",
           "date": "4月22日1限",
-          "name": "神経内科",
+          "name": "神経系の代謝・中毒疾患",
           "speaker": "水野 将行"
         }
       ]
@@ -1011,25 +1011,25 @@
         {
           "path": "./html/神経外科/042202神経外科_index.html",
           "date": "4月22日2限",
-          "name": "神経外科",
+          "name": "脳神経外科オリエンテーション、脳循環代謝・脳浮腫、頭蓋内圧亢進・脳ヘルニア",
           "speaker": "新教授"
         },
         {
           "path": "./html/神経外科/042203神経外科_index.html",
           "date": "4月22日3限",
-          "name": "神経外科",
+          "name": "水頭症（成人）",
           "speaker": "山田茂樹"
         },
         {
           "path": "./html/神経外科/042204神経外科_index.html",
           "date": "4月22日4限",
-          "name": "神経外科",
+          "name": "脳血管内治療（硬膜動静脈瘻・血栓回収療法）",
           "speaker": "西川祐介"
         },
         {
           "path": "./html/神経外科/042803神経外科_index.html",
           "date": "4月28日3限",
-          "name": "神経外科",
+          "name": "頭部外傷",
           "speaker": "井上泰豪"
         }
       ]
@@ -1040,61 +1040,61 @@
         {
           "path": "./html/精神/030301精神_index.html",
           "date": "3月3日1限",
-          "name": "精神",
+          "name": "精神医学総論",
           "speaker": "明智龍男"
         },
         {
           "path": "./html/精神/030302精神_index.html",
           "date": "3月3日2限",
-          "name": "精神",
+          "name": "精神科治療：精神療法（認知行動療法を中心に）",
           "speaker": "中野有美"
         },
         {
           "path": "./html/精神/031001精神_index.html",
           "date": "3月10日1限",
-          "name": "精神",
+          "name": "精神科治療：薬物療法および身体的治療法",
           "speaker": "渡辺孝文"
         },
         {
           "path": "./html/精神/031002精神_index.html",
           "date": "3月10日2限",
-          "name": "精神",
+          "name": "精神科検査法：心理検査、症状評価尺度、画像検査、生理検査",
           "speaker": "利重裕子"
         },
         {
           "path": "./html/精神/031701精神_index.html",
           "date": "3月17日1限",
-          "name": "精神",
+          "name": "気分障害(1)",
           "speaker": "奥山 徹"
         },
         {
           "path": "./html/精神/031702精神_index.html",
           "date": "3月17日2限",
-          "name": "精神",
+          "name": "気分障害(2)",
           "speaker": "持田圭仁"
         },
         {
           "path": "./html/精神/032401精神_index.html",
           "date": "3月24日1限",
-          "name": "精神",
+          "name": "不安症群、強迫症および関連症群、食行動障害および摂食障害群",
           "speaker": "小川 成"
         },
         {
           "path": "./html/精神/032402精神_index.html",
           "date": "3月24日2限",
-          "name": "精神",
+          "name": "統合失調症スペクトラム障害および他の精神病性障害群",
           "speaker": "白石 直"
         },
         {
           "path": "./html/精神/041401精神_index.html",
           "date": "4月14日1限",
-          "name": "精神",
+          "name": "心的外傷およびストレス因関連障害群、解離症群、身体症状症および関連症群",
           "speaker": "中口智博"
         },
         {
           "path": "./html/精神/041402精神_index.html",
           "date": "4月14日2限",
-          "name": "精神",
+          "name": "医学的疾患による精神障害およびコンサルテーション精神医学",
           "speaker": "内田 恵"
         }
       ]
@@ -1105,97 +1105,97 @@
         {
           "path": "./html/耳鼻科/010903耳鼻科_index.html",
           "date": "1月9日3限",
-          "name": "精神",
+          "name": "睡眠 基礎と臨床",
           "speaker": "有馬菜千枝"
         },
         {
           "path": "./html/耳鼻科/010904耳鼻科_index.html",
           "date": "1月9日4限",
-          "name": "耳鼻科",
+          "name": "耳鼻咽喉科の役割・総論",
           "speaker": "岩﨑真一"
         },
         {
           "path": "./html/耳鼻科/011603耳鼻科_index.html",
           "date": "1月16日3限",
-          "name": "耳鼻科",
+          "name": "めまいの基礎と臨床",
           "speaker": "岩﨑真一"
         },
         {
           "path": "./html/耳鼻科/011604耳鼻科_index.html",
           "date": "1月16日4限",
-          "name": "耳鼻科",
+          "name": "聴覚:解剖・生理・疾患、聴覚検査、全身疾患との関連",
           "speaker": "高橋真理子"
         },
         {
           "path": "./html/耳鼻科/012303耳鼻科_index.html",
           "date": "1月23日3限",
-          "name": "耳鼻科",
+          "name": "喉頭:解剖と疾患、音声外科",
           "speaker": "讃岐徹治"
         },
         {
           "path": "./html/耳鼻科/012304耳鼻科_index.html",
           "date": "1月23日4限",
-          "name": "耳鼻科",
+          "name": "口腔咽頭1:解剖・生理 炎症性疾患と睡眠時無呼吸症候群",
           "speaker": "佐藤慎太郎"
         },
         {
           "path": "./html/耳鼻科/013003耳鼻科_index.html",
           "date": "1月30日3限",
-          "name": "耳鼻科",
+          "name": "鼻副鼻腔:解剖・生理・疾患、アレルギー性疾患",
           "speaker": "中村善久"
         },
         {
           "path": "./html/耳鼻科/013004耳鼻科_index.html",
           "date": "1月30日4限",
-          "name": "耳鼻科",
+          "name": "頭頸部悪性腫瘍1",
           "speaker": "川北大介"
         },
         {
           "path": "./html/耳鼻科/020501耳鼻科_index.html",
           "date": "2月5日1限",
-          "name": "耳鼻科",
+          "name": "めまいの臨床とアクティブラーニング",
           "speaker": "蒲谷嘉代子"
         },
         {
           "path": "./html/耳鼻科/020502耳鼻科_index.html",
           "date": "2月5日2限",
-          "name": "耳鼻科",
+          "name": "嚥下障害の臨床とアクティブラーニング",
           "speaker": "竹本直樹"
         },
         {
           "path": "./html/耳鼻科/020603耳鼻科_index.html",
           "date": "2月6日3限",
-          "name": "耳鼻科",
+          "name": "頭頸部再建",
           "speaker": "中村亮太"
         },
         {
           "path": "./html/耳鼻科/020604耳鼻科_index.html",
           "date": "2月6日4限",
-          "name": "形成外科",
+          "name": "形成外科総論",
           "speaker": "鳥山和宏／武川力"
         },
         {
           "path": "./html/耳鼻科/021201耳鼻科_index.html",
           "date": "2月12日1限",
-          "name": "耳鼻科",
+          "name": "頭頸部悪性腫瘍2",
           "speaker": "的場拓磨"
         },
         {
           "path": "./html/耳鼻科/021202耳鼻科_index.html",
           "date": "2月12日2限",
-          "name": "耳鼻科",
+          "name": "口腔咽頭2:疾患、唾液腺疾患",
           "speaker": "江崎伸一"
         },
         {
           "path": "./html/耳鼻科/021703耳鼻科_index.html",
           "date": "2月17日3限",
-          "name": "耳鼻科",
+          "name": "外耳・中耳:解剖・生理・疾患、顔面神経",
           "speaker": "南方寿哉"
         },
         {
           "path": "./html/耳鼻科/021704耳鼻科_index.html",
           "date": "2月17日4限",
-          "name": "耳鼻科",
+          "name": "鼻副鼻腔腫瘍、嗅覚、味覚",
           "speaker": "角谷尚悟"
         }
       ]
@@ -1206,73 +1206,73 @@
         {
           "path": "./html/腎/010701腎_index.html",
           "date": "1月7日1限",
-          "name": "腎",
+          "name": "尿検査の実際(血尿・蛋白尿)、腎機能の見方(24時間尿・eGFR)",
           "speaker": "友斉 達也"
         },
         {
           "path": "./html/腎/010702腎_index.html",
           "date": "1月7日2限",
-          "name": "腎",
+          "name": "DKD、腎硬化症,慢性糸球体腎炎の診断・治療",
           "speaker": "春日井 貴久"
         },
         {
           "path": "./html/腎/011401腎_index.html",
           "date": "1月14日1限",
-          "name": "腎",
+          "name": "酸塩基平衡とNa/K代謝異常(+Active Learning)",
           "speaker": "友斉 達也"
         },
         {
           "path": "./html/腎/011402腎_index.html",
           "date": "1月14日2限",
-          "name": "腎",
+          "name": "糸球体疾患の腎病理",
           "speaker": "春日井 貴久"
         },
         {
           "path": "./html/腎/012101腎_index.html",
           "date": "1月21日1限",
-          "name": "腎",
+          "name": "水／Na代謝／利尿薬",
           "speaker": "猪阪 善隆"
         },
         {
           "path": "./html/腎/012102腎_index.html",
           "date": "1月21日2限",
-          "name": "腎",
+          "name": "急性腎障害、急性血液浄化(+Active Learning)",
           "speaker": "鈴木 皓大"
         },
         {
           "path": "./html/腎/012801腎_index.html",
           "date": "1月28日1限",
-          "name": "腎",
+          "name": "ネフローゼ症候群(+Active Learning)",
           "speaker": "水野 晶紫"
         },
         {
           "path": "./html/腎/012802腎_index.html",
           "date": "1月28日2限",
-          "name": "腎",
+          "name": "遺伝性腎疾患(ADPKD、Alport症候群 Fabry病)・間質尿細管疾患",
           "speaker": "友斉 達也"
         },
         {
           "path": "./html/腎/020401腎_index.html",
           "date": "2月4日1限",
-          "name": "腎",
+          "name": "CKDと腎性貧血",
           "speaker": "濱野 高行"
         },
         {
           "path": "./html/腎/020402腎_index.html",
           "date": "2月4日2限",
-          "name": "循環",
+          "name": "二次性高血圧症",
           "speaker": "鈴木 皓大"
         },
         {
           "path": "./html/腎/021801腎_index.html",
           "date": "2月18日1限",
-          "name": "腎",
+          "name": "二次性腎症(SLE、アミロイドーシスなど)",
           "speaker": "水野 晶紫"
         },
         {
           "path": "./html/腎/021802腎_index.html",
           "date": "2月18日2限",
-          "name": "腎",
+          "name": "血液透析・腎移植・腹膜透析",
           "speaker": "春日井 貴久"
         }
       ]
@@ -1283,55 +1283,55 @@
         {
           "path": "./html/麻酔/012701麻酔_index.html",
           "date": "1月27日1限",
-          "name": "麻酔",
+          "name": "麻酔科の術前管理",
           "speaker": "祖父江和哉"
         },
         {
           "path": "./html/麻酔/012702麻酔_index.html",
           "date": "1月27日2限",
-          "name": "麻酔",
+          "name": "麻酔科の術中管理",
           "speaker": "祖父江和哉"
         },
         {
           "path": "./html/麻酔/020301麻酔_index.html",
           "date": "2月3日1限",
-          "name": "麻酔",
+          "name": "麻酔科の術後管理",
           "speaker": "祖父江和哉"
         },
         {
           "path": "./html/麻酔/020302麻酔_index.html",
           "date": "2月3日2限",
-          "name": "麻酔",
+          "name": "麻酔・集中治療に役立つ気道管理",
           "speaker": "祖父江和哉"
         },
         {
           "path": "./html/麻酔/021001麻酔_index.html",
           "date": "2月10日1限",
-          "name": "麻酔",
+          "name": "麻酔・集中治療における呼吸管理",
           "speaker": "田村哲也"
         },
         {
           "path": "./html/麻酔/021002麻酔_index.html",
           "date": "2月10日2限",
-          "name": "循環",
+          "name": "麻酔・集中治療における循環管理",
           "speaker": "田村哲也"
         },
         {
           "path": "./html/麻酔/021701麻酔_index.html",
           "date": "2月17日1限",
-          "name": "麻酔",
+          "name": "麻酔・集中治療に役立つ静脈路確保",
           "speaker": "祖父江和哉"
         },
         {
           "path": "./html/麻酔/021702麻酔_index.html",
           "date": "2月17日2限",
-          "name": "麻酔",
+          "name": "周産期麻酔",
           "speaker": "田中 基"
         },
         {
           "path": "./html/麻酔/022402麻酔_index.html",
           "date": "2月24日2限",
-          "name": "麻酔",
+          "name": "症例検討",
           "speaker": "祖父江和哉"
         }
       ]
