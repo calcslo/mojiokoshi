@@ -1,6 +1,101 @@
 {
-  "generated": "2026-05-08T19:02:45.733466+09:00",
+  "generated": "2026-05-08T22:07:57.502140+09:00",
   "subjects": [
+    {
+      "name": "内分泌",
+      "lectures": [
+        {
+          "path": "./html/内分泌/040901内分泌_index.html",
+          "date": "4月9日1限",
+          "name": "内分泌",
+          "speaker": "田中智洋"
+        },
+        {
+          "path": "./html/内分泌/040902内分泌_index.html",
+          "date": "4月9日2限",
+          "name": "内分泌",
+          "speaker": "小山博之"
+        },
+        {
+          "path": "./html/内分泌/040903内分泌_index.html",
+          "date": "4月9日3限",
+          "name": "内分泌",
+          "speaker": "高木博史"
+        },
+        {
+          "path": "./html/内分泌/040904内分泌_index.html",
+          "date": "4月9日4限",
+          "name": "内分泌",
+          "speaker": "高木博史"
+        },
+        {
+          "path": "./html/内分泌/041002内分泌_index.html",
+          "date": "4月10日2限",
+          "name": "内分泌",
+          "speaker": "田中智洋"
+        },
+        {
+          "path": "./html/内分泌/041601内分泌_index.html",
+          "date": "4月16日1限",
+          "name": "内分泌",
+          "speaker": "佐々木茂和"
+        },
+        {
+          "path": "./html/内分泌/041602内分泌_index.html",
+          "date": "4月16日2限",
+          "name": "内分泌",
+          "speaker": "今枝憲郎"
+        },
+        {
+          "path": "./html/内分泌/041702内分泌_index.html",
+          "date": "4月17日2限",
+          "name": "内分泌",
+          "speaker": "田中智洋"
+        },
+        {
+          "path": "./html/内分泌/041703内分泌_index.html",
+          "date": "4月17日3限",
+          "name": "内分泌",
+          "speaker": "鈴木敦詞"
+        },
+        {
+          "path": "./html/内分泌/041704内分泌_index.html",
+          "date": "4月17日4限",
+          "name": "内分泌",
+          "speaker": "鈴木敦詞"
+        },
+        {
+          "path": "./html/内分泌/042304内分泌_index.html",
+          "date": "4月23日4限",
+          "name": "内分泌",
+          "speaker": "伊藤哲哉"
+        },
+        {
+          "path": "./html/内分泌/042401内分泌_index.html",
+          "date": "4月24日1限",
+          "name": "内分泌",
+          "speaker": "水野達央"
+        },
+        {
+          "path": "./html/内分泌/042402内分泌_index.html",
+          "date": "4月24日2限",
+          "name": "内分泌",
+          "speaker": "八木崇志"
+        },
+        {
+          "path": "./html/内分泌/042403内分泌_index.html",
+          "date": "4月24日3限",
+          "name": "内分泌",
+          "speaker": "横田紀子"
+        },
+        {
+          "path": "./html/内分泌/042404内分泌_index.html",
+          "date": "4月24日4限",
+          "name": "内分泌",
+          "speaker": "野尻俊輔"
+        }
+      ]
+    },
     {
       "name": "呼吸器",
       "lectures": [
@@ -272,6 +367,30 @@
           "date": "3月18日2限",
           "name": "小児",
           "speaker": "岩田 欧介"
+        },
+        {
+          "path": "./html/小児/032403小児_index.html",
+          "date": "3月24日3限",
+          "name": "小児",
+          "speaker": "家田 大輔"
+        },
+        {
+          "path": "./html/小児/032404小児_index.html",
+          "date": "3月24日4限",
+          "name": "小児",
+          "speaker": "岩田 欧介"
+        },
+        {
+          "path": "./html/小児/032501小児_index.html",
+          "date": "3月25日1限",
+          "name": "小児",
+          "speaker": "大橋 圭"
+        },
+        {
+          "path": "./html/小児/032502小児_index.html",
+          "date": "3月25日2限",
+          "name": "小児",
+          "speaker": "宮地 泰士"
         }
       ]
     },
@@ -688,6 +807,42 @@
           "date": "3月12日4限",
           "name": "消化器",
           "speaker": "中沢貴宏"
+        },
+        {
+          "path": "./html/消化器/031903消化器_index.html",
+          "date": "3月19日3限",
+          "name": "消化器",
+          "speaker": "佐藤崇文"
+        },
+        {
+          "path": "./html/消化器/031904消化器_index.html",
+          "date": "3月19日4限",
+          "name": "消化器",
+          "speaker": "齊藤健太"
+        },
+        {
+          "path": "./html/消化器/032701消化器_index.html",
+          "date": "3月27日1限",
+          "name": "消化器",
+          "speaker": "佐藤怜央"
+        },
+        {
+          "path": "./html/消化器/032702消化器_index.html",
+          "date": "3月27日2限",
+          "name": "消化器",
+          "speaker": "早川俊輔"
+        },
+        {
+          "path": "./html/消化器/032703消化器_index.html",
+          "date": "3月27日3限",
+          "name": "消化器",
+          "speaker": "小川 了"
+        },
+        {
+          "path": "./html/消化器/032704消化器_index.html",
+          "date": "3月27日4限",
+          "name": "消化器",
+          "speaker": "瀧口修司"
         }
       ]
     },
@@ -745,6 +900,141 @@
       ]
     },
     {
+      "name": "皮膚",
+      "lectures": [
+        {
+          "path": "./html/皮膚/040603皮膚_index.html",
+          "date": "4月6日3限",
+          "name": "皮膚",
+          "speaker": "鳥山"
+        },
+        {
+          "path": "./html/皮膚/040604皮膚_index.html",
+          "date": "4月6日4限",
+          "name": "皮膚",
+          "speaker": "中村"
+        },
+        {
+          "path": "./html/皮膚/041301皮膚_index.html",
+          "date": "4月13日1限",
+          "name": "皮膚",
+          "speaker": "真柄"
+        },
+        {
+          "path": "./html/皮膚/041302皮膚_index.html",
+          "date": "4月13日2限",
+          "name": "皮膚",
+          "speaker": "澤田（非常勤講師）"
+        },
+        {
+          "path": "./html/皮膚/041303皮膚_index.html",
+          "date": "4月13日3限",
+          "name": "皮膚",
+          "speaker": "西尾（非常勤講師）"
+        },
+        {
+          "path": "./html/皮膚/041304皮膚_index.html",
+          "date": "4月13日4限",
+          "name": "皮膚",
+          "speaker": "真柄"
+        },
+        {
+          "path": "./html/皮膚/042001皮膚_index.html",
+          "date": "4月20日1限",
+          "name": "皮膚",
+          "speaker": "森田"
+        },
+        {
+          "path": "./html/皮膚/042002皮膚_index.html",
+          "date": "4月20日2限",
+          "name": "皮膚",
+          "speaker": "森田"
+        }
+      ]
+    },
+    {
+      "name": "神経内科",
+      "lectures": [
+        {
+          "path": "./html/神経内科/031902神経内科_index.html",
+          "date": "3月19日2限",
+          "name": "神経内科",
+          "speaker": "川嶋 将司"
+        },
+        {
+          "path": "./html/神経内科/032602神経内科_index.html",
+          "date": "3月26日2限",
+          "name": "神経内科",
+          "speaker": "川嶋 将司"
+        },
+        {
+          "path": "./html/神経内科/040801神経内科_index.html",
+          "date": "4月8日1限",
+          "name": "神経内科",
+          "speaker": "松川 則之"
+        },
+        {
+          "path": "./html/神経内科/040803神経内科_index.html",
+          "date": "4月8日3限",
+          "name": "神経内科",
+          "speaker": "水野 将行"
+        },
+        {
+          "path": "./html/神経内科/040804神経内科_index.html",
+          "date": "4月8日4限",
+          "name": "神経内科",
+          "speaker": "藤岡 哲平"
+        },
+        {
+          "path": "./html/神経内科/041403神経内科_index.html",
+          "date": "4月14日3限",
+          "name": "神経内科",
+          "speaker": "大村 眞弘"
+        },
+        {
+          "path": "./html/神経内科/041504神経内科_index.html",
+          "date": "4月15日4限",
+          "name": "神経内科",
+          "speaker": "佐藤 豊大"
+        },
+        {
+          "path": "./html/神経内科/042201神経内科_index.html",
+          "date": "4月22日1限",
+          "name": "神経内科",
+          "speaker": "水野 将行"
+        }
+      ]
+    },
+    {
+      "name": "神経外科",
+      "lectures": [
+        {
+          "path": "./html/神経外科/042202神経外科_index.html",
+          "date": "4月22日2限",
+          "name": "神経外科",
+          "speaker": "新教授"
+        },
+        {
+          "path": "./html/神経外科/042203神経外科_index.html",
+          "date": "4月22日3限",
+          "name": "神経外科",
+          "speaker": "山田茂樹"
+        },
+        {
+          "path": "./html/神経外科/042204神経外科_index.html",
+          "date": "4月22日4限",
+          "name": "神経外科",
+          "speaker": "西川祐介"
+        },
+        {
+          "path": "./html/神経外科/042803神経外科_index.html",
+          "date": "4月28日3限",
+          "name": "神経外科",
+          "speaker": "井上泰豪"
+        }
+      ]
+    },
+    {
       "name": "精神",
       "lectures": [
         {
@@ -782,6 +1072,30 @@
           "date": "3月17日2限",
           "name": "精神",
           "speaker": "持田圭仁"
+        },
+        {
+          "path": "./html/精神/032401精神_index.html",
+          "date": "3月24日1限",
+          "name": "精神",
+          "speaker": "小川 成"
+        },
+        {
+          "path": "./html/精神/032402精神_index.html",
+          "date": "3月24日2限",
+          "name": "精神",
+          "speaker": "白石 直"
+        },
+        {
+          "path": "./html/精神/041401精神_index.html",
+          "date": "4月14日1限",
+          "name": "精神",
+          "speaker": "中口智博"
+        },
+        {
+          "path": "./html/精神/041402精神_index.html",
+          "date": "4月14日2限",
+          "name": "精神",
+          "speaker": "内田 恵"
         }
       ]
     },
