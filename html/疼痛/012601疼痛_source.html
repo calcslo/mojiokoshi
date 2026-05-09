@@ -7,6 +7,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../css/source.css" rel="stylesheet"/>
 <title>原文：1月26日1限 疼痛 杉浦健之<br>疼痛医学総論: 痛み医療総論</title>
+    <script src="../../css/highlight.js" defer></script>
+    <script src="../../css/search_engine.js" defer></script>
 </head>
 <body>
 <div class="notice-bar" id="notice-message">リンク先が準備されていません</div>
@@ -16,6 +18,18 @@
 <span></span>
 </div>
 <nav class="side-menu" id="sideMenu" onclick="switchMenu(btn09)">
+        <div class="side-search-container" style="padding:12px 14px; border-bottom:1px solid #ddd; box-sizing:border-box;" onclick="event.stopPropagation()">
+            <input type="text" id="sideSearchInput"
+                   placeholder="全講義を検索..."
+                   style="width:100%;padding:8px 10px;border-radius:20px;border:1px solid #ccc;font-size:13px;box-sizing:border-box;"
+                   disabled>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                <div id="sideSearchStatus" style="font-size:10px;color:#888;">準備中...</div>
+            </div>
+            <div id="sideSearchResults"
+                 style="max-height:320px;overflow-y:auto;background:white;margin-top:6px;border-radius:8px;border:1px solid #e0e0e0;display:none;">
+            </div>
+        </div>
 <h2>リンク集</h2>
 
                 
@@ -183,5 +197,34 @@
                     }
                 });
             </script>
+    <script src="../../css/chat_widget.js" defer></script>
+
+        <script>
+            // 検索ウィジェット初期化（search_engine.js に依存）
+            window.addEventListener('load', function() {
+                if (typeof initSearchComponent === 'function') {
+                    initSearchComponent({
+                        inputId: 'sideSearchInput',
+                        resultsId: 'sideSearchResults',
+                        statusId: 'sideSearchStatus',
+                        rootPath: '../../'
+                    });
+                    document.getElementById('sideSearchResults').addEventListener('click', function(e){
+                        e.stopPropagation();
+                    });
+                    // 検索結果表示時にdisplayを切り替え
+                    var obs = new MutationObserver(function(muts){
+                        muts.forEach(function(m){
+                            if(m.type==='childList'){
+                                var r = document.getElementById('sideSearchResults');
+                                if(r) r.style.display = r.innerHTML.trim() ? 'block' : 'none';
+                            }
+                        });
+                    });
+                    var el = document.getElementById('sideSearchResults');
+                    if(el) obs.observe(el, {childList:true});
+                }
+            });
+        </script>
 </body>
 </html>
