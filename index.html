@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="講義文字起こしノート一覧">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="./css/highlight.js" defer></script>
+    <script src="./css/search_engine.js" defer></script>
     <title>MOJIOKOSHI NOTE</title>
     <style>
       /* ====== index.html 専用追加スタイル ====== */
@@ -116,6 +118,14 @@
         font-weight: 500;
       }
 
+      mark {
+        background: #fff9c4;
+        color: #d32f2f;
+        font-weight: 700;
+        padding: 0 2px;
+        border-radius: 2px;
+      }
+
       .last-updated {
         text-align: right;
         font-size: 11px;
@@ -135,6 +145,123 @@
         .notebook-container { padding: 15px; margin: 10px; }
         h1.notebook-title { font-size: 1.4em; }
         .main-grid { grid-template-columns: 1fr; }
+      }
+
+      /* ====== 検索機能のスタイル ====== */
+      .search-section {
+        margin: 20px 0 30px;
+        position: relative;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .search-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border: 2px solid #e3f2fd;
+        border-radius: 50px;
+        padding: 5px 20px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(30, 48, 80, 0.05);
+      }
+      .search-input-wrapper:focus-within {
+        border-color: #1976d2;
+        box-shadow: 0 6px 20px rgba(25, 118, 210, 0.15);
+        transform: translateY(-2px);
+      }
+      #searchInput {
+        width: 100%;
+        border: none;
+        padding: 12px 15px;
+        font-size: 16px;
+        font-family: 'Kiwi Maru', serif;
+        outline: none;
+        background: transparent;
+      }
+      .search-icon {
+        color: #1976d2;
+        font-size: 20px;
+      }
+      #searchStatus {
+        font-size: 11px;
+        color: #777;
+        margin-top: 8px;
+        text-align: center;
+        min-height: 16px;
+      }
+
+      .search-results {
+        display: none;
+        margin-top: 20px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-height: 500px;
+        overflow-y: auto;
+        border: 1px solid #e3f2fd;
+        padding: 10px;
+      }
+      .search-results.active { display: block; }
+      .search-result-item {
+        padding: 15px;
+        border-bottom: 1px solid #f0f7ff;
+        transition: background 0.2s;
+        cursor: pointer;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .search-result-item:hover { background: #f0f7ff; }
+      .search-result-item:last-child { border-bottom: none; }
+      .result-title {
+        font-weight: 700;
+        color: #1976d2;
+        font-size: 14px;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .result-content {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .result-meta {
+        font-size: 11px;
+        color: #999;
+        margin-top: 6px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .similarity-tag {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-weight: 700;
+      }
+
+      /* プログレスバー */
+      .loading-progress-container {
+        width: 100%;
+        height: 4px;
+        background: #eee;
+        border-radius: 2px;
+        margin-top: 4px;
+        display: none;
+      }
+      .loading-progress-bar {
+        height: 100%;
+        background: #1976d2;
+        width: 0%;
+        transition: width 0.3s;
       }
     </style>
 </head>
@@ -160,6 +287,22 @@
 <div class="notebook-container">
     <div class="last-updated" id="lastUpdated">--</div>
     <h1 class="notebook-title">MOJIOKOSHI <span>NOTE</span></h1>
+
+    <!-- 検索セクション -->
+    <div class="search-section">
+        <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="講義内容を意味で検索... (例: ぜんそくの治療)" disabled>
+        </div>
+        <div class="loading-progress-container" id="searchProgressContainer">
+            <div class="loading-progress-bar" id="searchProgressBar"></div>
+        </div>
+        <div id="searchStatus">検索インデックスをロード中...</div>
+        
+        <div id="searchResults" class="search-results">
+            <!-- 検索結果がここに表示される -->
+        </div>
+    </div>
     
     <div id="mainGrid" class="main-grid">
         <div class="empty-state">
@@ -345,6 +488,21 @@
 
     // ── 起動 ──────────────────────────────────────────
     buildFromManifest();
+
+    // 共通検索エンジン (search_engine.js) を使用
+    window.addEventListener('load', () => {
+        if (typeof initSearchComponent === 'function') {
+            initSearchComponent({
+                inputId: 'searchInput',
+                resultsId: 'searchResults',
+                statusId: 'searchStatus',
+                progressId: 'searchProgressBar',
+                progressContainerId: 'searchProgressContainer',
+                rootPath: './'
+            });
+        }
+    });
 </script>
+<script src="./css/chat_widget.js" defer></script>
 </body>
 </html>
