@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-09T17:31:26.532726+09:00",
+  "generated": "2026-05-09T17:52:26.954835+09:00",
   "subjects": [
     {
       "name": "内分泌",
@@ -331,6 +331,12 @@
           "date": "3月9日1限",
           "name": "小児",
           "speaker": "山口 直哉"
+        },
+        {
+          "path": "./html/小児/030902小児_index.html",
+          "date": "3月9日2限",
+          "name": "小児",
+          "speaker": "佐藤 陽子"
         },
         {
           "path": "./html/小児/030903小児_index.html",
@@ -953,6 +959,12 @@
         {
           "path": "./html/皮膚/040601皮膚_index.html",
           "date": "4月6日1限",
+          "name": "皮膚",
+          "speaker": "加藤"
+        },
+        {
+          "path": "./html/皮膚/040602皮膚_index.html",
+          "date": "4月6日2限",
           "name": "皮膚",
           "speaker": "加藤"
         },
