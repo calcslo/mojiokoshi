@@ -168,12 +168,9 @@
     const deptSelect = document.getElementById('chat-filter-dept');
     if (!window._searchIndex || deptSelect.options.length > 1) return;
     const depts = [...new Set(window._searchIndex.map(item => {
-      const t = item.title || '';
-      if (t.startsWith('講義ノート：')) {
-        const parts = t.replace('講義ノート：', '').split(/\s+/);
-        return parts.length >= 2 ? parts[1].trim() : null;
-      }
-      return null;
+      const u = item.url || '';
+      const parts = u.split('/');
+      return parts.length >= 2 ? parts[parts.length - 2] : null;
     }).filter(Boolean))].sort();
     depts.forEach(d => {
       const opt = document.createElement('option');

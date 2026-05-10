@@ -145,16 +145,12 @@ class SearchEngine {
     }
 
     _buildFilters() {
-        // インデックスから診療科を抽出 (タイトル形式: "講義ノート：4月9日1限 内分泌 田中智洋...")
+        // インデックスから診療科を抽出 (URLのフォルダ名を利用)
         const depts = [...new Set(
             (this.index || []).map(item => {
-                const t = item.title || '';
-                // "講義ノート：" の後、スペースで区切られた3番目の要素が診療科
-                if (t.startsWith('講義ノート：')) {
-                    const parts = t.replace('講義ノート：', '').split(/\s+/);
-                    return parts.length >= 2 ? parts[1].trim() : null;
-                }
-                return null;
+                const u = item.url || '';
+                const parts = u.split('/');
+                return parts.length >= 2 ? parts[parts.length - 2] : null;
             }).filter(Boolean)
         )].sort();
 
