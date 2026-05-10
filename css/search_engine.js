@@ -1,202 +1,366 @@
 // ============================================================
-// 共通検索エンジン (Hybrid Search: Semantic + Keyword)
+// 共通検索エンジン v3 - 完全修正版
 // ============================================================
-let _searchIndex = null;
-let _embedder = null;
-let _currentResults = [];
-let _currentOffset = 0;
+
+const SEMESTER_MAP = {
+    'S1': ['呼吸器', '循環', '救急', '泌尿器', '疼痛', '耳鼻科', '腎', '麻酔'],
+    'S2': ['内分泌', '小児', '消化器', '皮膚', '神経内科', '神経外科', '精神']
+};
 const PAGE_SIZE = 15;
 
-async function initSearchComponent(config) {
-    const { inputId, resultsId, statusId, progressId, progressContainerId, rootPath } = config;
-    const searchInput = document.getElementById(inputId);
-    const searchResults = document.getElementById(resultsId);
-    const searchStatus = document.getElementById(statusId);
-    const searchProgress = progressId ? document.getElementById(progressId) : null;
-    const searchProgressContainer = progressContainerId ? document.getElementById(progressContainerId) : null;
+// グローバル状態
+let __engine = null;
 
-    if (!searchInput || !searchResults) return;
+class SearchEngine {
+    constructor(config) {
+        this.config = config;
+        this.index = null;
+        this.embedder = null;
+        this.results = [];
+        this.offset = 0;
+        this.ready = false;
+    }
 
-    try {
-        if (searchStatus) searchStatus.textContent = '検索準備中...';
+    get inputEl()   { return document.getElementById(this.config.inputId); }
+    get resultsEl() { return document.getElementById(this.config.resultsId); }
+    get statusEl()  { return document.getElementById(this.config.statusId); }
+    get filterEl()  { return this.config.filterContainerId ? document.getElementById(this.config.filterContainerId) : null; }
+    get progressEl(){ return this.config.progressId ? document.getElementById(this.config.progressId) : null; }
+    get progressContainerEl() { return this.config.progressContainerId ? document.getElementById(this.config.progressContainerId) : null; }
 
-        const transformersURL = 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
-        const { pipeline } = await import(transformersURL);
-        _embedder = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small');
+    setStatus(msg) {
+        if (this.statusEl) this.statusEl.textContent = msg;
+    }
 
-        if (searchStatus) searchStatus.textContent = 'インデックス読込中...';
-        if (searchProgressContainer) searchProgressContainer.style.display = 'block';
-
-        const response = await fetch(`${rootPath}search_index.json`);
-        if (!response.ok) throw new Error('search_index.json が見つかりません');
-
-        const contentLength = response.headers.get('content-length');
-        if (!contentLength) {
-            _searchIndex = await response.json();
-        } else {
-            const total = parseInt(contentLength, 10);
-            let loaded = 0;
-            const reader = response.body.getReader();
-            const chunks = [];
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                chunks.push(value);
-                loaded += value.length;
-                if (searchProgress) searchProgress.style.width = `${(loaded / total) * 100}%`;
-            }
-            const allChunks = new Uint8Array(loaded);
-            let offset = 0;
-            for (const chunk of chunks) { allChunks.set(chunk, offset); offset += chunk.length; }
-            _searchIndex = JSON.parse(new TextDecoder().decode(allChunks));
+    async init() {
+        // 遅延読み込みのため、最初はイベントリスナーの設定のみ行う
+        if (this.inputEl) {
+            this.inputEl.disabled = false; // 入力は可能にする
+            this.inputEl.addEventListener('focus', () => this.ensureReady(), { once: true });
+            this.inputEl.addEventListener('input', (e) => {
+                const q = e.target.value.trim();
+                if (q.length >= 2) this.ensureReady();
+            }, { once: true });
         }
-
-        if (searchStatus) searchStatus.textContent = '検索できます';
-        if (searchProgressContainer) searchProgressContainer.style.display = 'none';
-        searchInput.disabled = false;
-        searchInput.placeholder = '全講義から意味検索...';
-
-        // チャットウィジェットと共有（chat_widget.jsが参照する）
-        window.__sharedSearchIndex = _searchIndex;
-        window.__sharedEmbedder = _embedder;
-
-        let debounceTimer;
-        searchInput.addEventListener('input', (e) => {
-            clearTimeout(debounceTimer);
-            const query = e.target.value.trim();
-            if (query.length < 2) {
-                searchResults.innerHTML = '';
-                searchResults.classList.remove('active');
-                _currentResults = [];
-                _currentOffset = 0;
+        
+        // 状態復元
+        this._restoreState();
+        
+        // 入力イベント（メイン）
+        let debounce;
+        this.inputEl?.addEventListener('input', (e) => {
+            clearTimeout(debounce);
+            const q = e.target.value.trim();
+            this._saveState(q);
+            if (q.length < 2) {
+                if (this.resultsEl) {
+                    this.resultsEl.innerHTML = '';
+                    this.resultsEl.style.display = 'none';
+                }
                 return;
             }
-            debounceTimer = setTimeout(() => startSearch(query, searchResults, searchStatus, rootPath), 400);
-        });
-
-    } catch (err) {
-        console.error('Search init error:', err);
-        if (searchStatus) searchStatus.textContent = 'ロード失敗';
-    }
-}
-
-async function startSearch(query, resultsEl, statusEl, rootPath) {
-    if (!_embedder || !_searchIndex) return;
-    if (statusEl) statusEl.textContent = '検索中...';
-
-    try {
-        // --- セマンティックスコア計算 ---
-        const output = await _embedder(`query: ${query}`, { pooling: 'mean', normalize: true });
-        const queryVector = Array.from(output.data);
-
-        // キーワードトークン分割（2文字以上の日本語単語、または3文字以上英字）
-        const keywords = query.match(/[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF]{2,}|[a-zA-Z]{3,}|[0-9]{2,}/g) || [query];
-
-        const scored = _searchIndex.map(item => {
-            // コサイン類似度（0〜1）
-            let cosine = 0;
-            for (let i = 0; i < queryVector.length; i++) cosine += queryVector[i] * item.embedding[i];
-            // cosineSim は正規化済みなので -1〜1 → 0〜1 にスケール
-            const semanticScore = (cosine + 1) / 2;
-
-            // キーワード一致スコア（0〜1）
-            const text = item.content.toLowerCase();
-            const titleText = (item.title || '').toLowerCase();
-            let kwHits = 0;
-            for (const kw of keywords) {
-                const kl = kw.toLowerCase();
-                if (text.includes(kl)) kwHits += 1;
-                if (titleText.includes(kl)) kwHits += 1.5; // タイトル一致は重み大
+            if (this.ready) {
+                debounce = setTimeout(() => this.search(q), 400);
             }
-            const keywordScore = Math.min(1, kwHits / (keywords.length * 2.5));
-
-            // ハイブリッドスコア（意味60% + キーワード40%）、最大1.0（100%）
-            const hybrid = Math.min(1.0, semanticScore * 0.6 + keywordScore * 0.4);
-
-            return { ...item, score: hybrid };
         });
 
-        // スコア降順でソート（最低しきい値0.35）
-        _currentResults = scored
-            .filter(r => r.score > 0.35)
-            .sort((a, b) => b.score - a.score);
+        // 検索ボタン（もしあれば）
+        const btn = document.getElementById(this.config.buttonId || 'sideSearchBtn');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const q = this.inputEl?.value.trim();
+                if (q) {
+                    if (this.ready) this.search(q);
+                    else this.ensureReady().then(() => this.search(q));
+                }
+            });
+        }
+    }
 
-        _currentOffset = 0;
-        renderPage(resultsEl, query, rootPath, false);
+    async ensureReady() {
+        if (this.ready || this.loading) return;
+        this.loading = true;
+        
+        const { rootPath } = this.config;
+        try {
+            this.setStatus('モデルロード中...');
+            if (this.progressContainerEl) this.progressContainerEl.style.display = 'block';
 
-        if (statusEl) statusEl.textContent = `${_currentResults.length}件発見`;
+            // ✅ 動的インポート
+            const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js');
+            this.embedder = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small', {
+                quantized: true
+            });
 
-    } catch (err) {
-        console.error('Search error:', err);
-        if (statusEl) statusEl.textContent = 'エラーが発生しました';
+            this.setStatus('インデックス読込中...');
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const indexFile = isMobile ? 'search_index_light.json' : 'search_index.json';
+
+            const resp = await fetch(`${rootPath}${indexFile}`);
+            if (!resp.ok) throw new Error(`${indexFile} の読み込みに失敗: ${resp.status}`);
+
+            const contentLength = resp.headers.get('content-length');
+            if (contentLength && this.progressEl) {
+                const total = parseInt(contentLength, 10);
+                let loaded = 0;
+                const reader = resp.body.getReader();
+                const chunks = [];
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    chunks.push(value);
+                    loaded += value.length;
+                    this.progressEl.style.width = `${(loaded / total) * 100}%`;
+                }
+                const all = new Uint8Array(loaded);
+                let pos = 0;
+                for (const c of chunks) { all.set(c, pos); pos += c.length; }
+                this.index = JSON.parse(new TextDecoder().decode(all));
+            } else {
+                this.index = await resp.json();
+            }
+
+            if (this.progressContainerEl) this.progressContainerEl.style.display = 'none';
+
+            // 共有用グローバル
+            window.__sharedSearchIndex = this.index;
+            window.__sharedEmbedder = this.embedder;
+
+            // フィルター構築
+            if (this.filterEl) this._buildFilters();
+
+            this.ready = true;
+            this.loading = false;
+            this.setStatus(`検索できます（${isMobile ? '軽量' : 'フル'}モード）`);
+
+            // すでに入力があれば検索実行
+            const q = this.inputEl?.value.trim();
+            if (q && q.length >= 2) this.search(q);
+
+        } catch (err) {
+            console.error('[SearchEngine] ensureReady error:', err);
+            this.setStatus(`エラー: ${err.message}`);
+            this.loading = false;
+        }
+    }
+
+    _buildFilters() {
+        // インデックスから診療科を抽出 (タイトル形式: "講義ノート：4月9日1限 内分泌 田中智洋...")
+        const depts = [...new Set(
+            (this.index || []).map(item => {
+                const t = item.title || '';
+                // "講義ノート：" の後、スペースで区切られた3番目の要素が診療科
+                if (t.startsWith('講義ノート：')) {
+                    const parts = t.replace('講義ノート：', '').split(/\s+/);
+                    return parts.length >= 2 ? parts[1].trim() : null;
+                }
+                return null;
+            }).filter(Boolean)
+        )].sort();
+
+        let html = '<div style="font-size:11px;color:#555;margin:8px 0 5px;font-weight:bold;">絞り込み（未選択=全件）</div>';
+
+        // セメスター
+        html += '<div style="display:flex;gap:12px;margin-bottom:8px;">';
+        ['S1', 'S2'].forEach(s => {
+            html += `<label style="font-size:12px;cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px;">
+                       <input type="checkbox" class="filter-sem" value="${s}"> <strong>${s}</strong>
+                     </label>`;
+        });
+        html += '</div>';
+
+        // 診療科
+        if (depts.length > 0) {
+            html += '<div style="display:flex;flex-wrap:wrap;gap:4px;max-height:120px;overflow-y:auto;padding-right:4px;">';
+            depts.forEach(d => {
+                html += `<label style="font-size:11px;cursor:pointer;user-select:none;background:#f5f5f5;border:1px solid #ddd;padding:2px 8px;border-radius:12px;display:flex;align-items:center;gap:3px;transition: background 0.2s;">
+                           <input type="checkbox" class="filter-dept" value="${d}"> ${d}
+                         </label>`;
+            });
+            html += '</div>';
+        }
+
+        this.filterEl.innerHTML = html;
+
+        // フィルター変更時に再検索
+        this.filterEl.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', () => {
+                const q = this.inputEl?.value.trim() || '';
+                this._saveState(q);
+                if (q.length >= 2) this.search(q);
+            });
+        });
+    }
+
+    async search(query) {
+        if (!this.index) return;
+        this.setStatus('検索中...');
+
+        try {
+            const keywords = query.match(/[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF]{2,}|[a-zA-Z]{3,}|[0-9]{2,}/g) || [query];
+
+            // セマンティックベクトル（embedderがあれば）
+            let queryVector = null;
+            if (this.embedder) {
+                const out = await this.embedder(`query: ${query}`, { pooling: 'mean', normalize: true });
+                queryVector = Array.from(out.data);
+            }
+
+            // フィルター取得
+            const activeSems  = [...document.querySelectorAll('.filter-sem:checked')].map(c => c.value);
+            const activeDepts = [...document.querySelectorAll('.filter-dept:checked')].map(c => c.value);
+
+            const scored = this.index
+                .filter(item => {
+                    // 何も選択されていない場合は全件対象
+                    if (activeSems.length === 0 && activeDepts.length === 0) return true;
+                    
+                    const t = item.title || '';
+                    let dept = null;
+                    if (t.startsWith('講義ノート：')) {
+                        const parts = t.replace('講義ノート：', '').split(/\s+/);
+                        dept = parts.length >= 2 ? parts[1].trim() : null;
+                    }
+                    if (!dept) return false;
+
+                    // 診療科直接指定
+                    if (activeDepts.length > 0 && activeDepts.includes(dept)) return true;
+
+                    // セメスター指定
+                    if (activeSems.includes('S1') && SEMESTER_MAP['S1'].includes(dept)) return true;
+                    if (activeSems.includes('S2') && SEMESTER_MAP['S2'].includes(dept)) return true;
+
+                    return false;
+                })
+                .map(item => {
+                    const text  = (item.content || '').toLowerCase();
+                    const title = (item.title   || '').toLowerCase();
+                    let kwScore = 0;
+                    for (const kw of keywords) {
+                        const kl = kw.toLowerCase();
+                        if (text.includes(kl))  kwScore += 1;
+                        if (title.includes(kl)) kwScore += 1.5;
+                    }
+                    kwScore = Math.min(1, kwScore / (keywords.length * 2.5));
+
+                    if (queryVector && item.embedding) {
+                        let cos = 0;
+                        for (let i = 0; i < queryVector.length; i++) cos += queryVector[i] * item.embedding[i];
+                        const sem = (cos + 1) / 2;
+                        return { ...item, score: Math.min(1, sem * 0.6 + kwScore * 0.4) };
+                    }
+                    return { ...item, score: kwScore };
+                });
+
+            this.results = scored
+                .filter(r => r.score > (queryVector ? 0.35 : 0.01))
+                .sort((a, b) => b.score - a.score);
+
+            this.offset = 0;
+            this._renderPage(query, false);
+            this.setStatus(`${this.results.length}件発見`);
+            this._saveState(query, this.results);
+
+        } catch (err) {
+            console.error('[SearchEngine] search error:', err);
+            this.setStatus('検索エラー: ' + err.message);
+        }
+    }
+
+    _renderPage(query, append) {
+        const el = this.resultsEl;
+        if (!el) return;
+        const { rootPath } = this.config;
+        const slice = this.results.slice(this.offset, this.offset + PAGE_SIZE);
+        this.offset += PAGE_SIZE;
+
+        if (!append) el.innerHTML = '';
+        el.querySelector('.show-more-btn')?.remove();
+
+        if (slice.length === 0 && !append) {
+            el.innerHTML = '<div style="padding:16px;color:#888;text-align:center;">結果がありません</div>';
+        }
+
+        const frag = document.createDocumentFragment();
+        slice.forEach(item => {
+            const a = document.createElement('a');
+            a.href = `${rootPath}${item.url}?h=${encodeURIComponent(query)}`;
+            a.style.cssText = 'display:block;padding:10px 12px;text-decoration:none;border-bottom:1px solid #eee;';
+            a.innerHTML = `
+              <span style="font-weight:bold;font-size:12px;color:#222;display:block;margin-bottom:2px;">${this._hl(item.title||'', query)}</span>
+              <div style="font-size:11px;color:#666;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${this._hl(item.content||'', query)}</div>
+              <div style="font-size:10px;color:#aaa;margin-top:3px;">一致度: ${Math.round(item.score*100)}%</div>
+            `;
+            frag.appendChild(a);
+        });
+        el.appendChild(frag);
+        el.style.display = 'block';
+
+        if (this.offset < this.results.length) {
+            const btn = document.createElement('button');
+            btn.className = 'show-more-btn';
+            btn.textContent = `さらに表示（残り ${this.results.length - this.offset} 件）`;
+            btn.style.cssText = 'display:block;width:100%;padding:10px;margin-top:4px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;font-size:12px;cursor:pointer;';
+            btn.onclick = () => { btn.remove(); this._renderPage(query, true); };
+            el.appendChild(btn);
+        }
+    }
+
+    _hl(text, query) {
+        let s = this._esc(text);
+        const kws = query.match(/[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF]{2,}|[a-zA-Z]{3,}|[0-9]{2,}|\S+/g) || [query];
+        kws.forEach(kw => {
+            const safe = this._esc(kw).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            s = s.replace(new RegExp(safe, 'gi'), m => `<mark style="background:#fff9c4;color:#d32f2f;font-weight:bold;">${m}</mark>`);
+        });
+        return s;
+    }
+
+    _esc(str) {
+        return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    _saveState(query, results = null) {
+        try {
+            const sems  = [...document.querySelectorAll('.filter-sem:checked')].map(c => c.value);
+            const depts = [...document.querySelectorAll('.filter-dept:checked')].map(c => c.value);
+            const s = { query, filters: { sems, depts }, ts: Date.now() };
+            if (results) s.results = results;
+            sessionStorage.setItem('srch', JSON.stringify(s));
+        } catch(_) {}
+    }
+
+    _restoreState() {
+        try {
+            const raw = sessionStorage.getItem('srch');
+            if (!raw) return;
+            const s = JSON.parse(raw);
+            if (Date.now() - s.ts > 30 * 60 * 1000) return;
+            if (s.query && this.inputEl) this.inputEl.value = s.query;
+            if (s.filters) {
+                s.filters.sems.forEach(v => {
+                    const cb = document.querySelector(`.filter-sem[value="${v}"]`);
+                    if (cb) cb.checked = true;
+                });
+                s.filters.depts.forEach(v => {
+                    const cb = document.querySelector(`.filter-dept[value="${v}"]`);
+                    if (cb) cb.checked = true;
+                });
+            }
+            if (s.results) {
+                this.results = s.results;
+                this.offset = 0;
+                this._renderPage(s.query, false);
+                this.setStatus(`${this.results.length}件（復元）`);
+            }
+        } catch(_) {}
     }
 }
 
-function renderPage(el, query, rootPath, append) {
-    const slice = _currentResults.slice(_currentOffset, _currentOffset + PAGE_SIZE);
-    _currentOffset += PAGE_SIZE;
-
-    if (!append) el.innerHTML = '';
-
-    // 既存の「もっと見る」ボタンがあれば削除
-    const existingBtn = el.querySelector('.show-more-btn');
-    if (existingBtn) existingBtn.remove();
-
-    const frag = document.createDocumentFragment();
-    slice.forEach(item => {
-        const a = document.createElement('a');
-        a.href = `${rootPath}${item.url}?h=${encodeURIComponent(query)}`;
-        a.className = 'search-result-item';
-        a.style.cssText = 'display:block;padding:10px 12px;text-decoration:none;border-bottom:1px solid #eee;cursor:pointer;';
-
-        // キーワードハイライト
-        const titleHl = inlineHighlight(item.title || '', query);
-        const contentHl = inlineHighlight(item.content || '', query);
-
-        a.innerHTML = `
-          <span style="font-weight:bold;font-size:12px;color:#1565c0;display:block;margin-bottom:3px;">${titleHl}</span>
-          <div style="font-size:11px;color:#555;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${contentHl}</div>
-          <div style="font-size:10px;color:#999;margin-top:4px;">一致度: ${Math.round(item.score * 100)}%</div>
-        `;
-        frag.appendChild(a);
-    });
-    el.appendChild(frag);
-    el.classList.add('active');
-
-    // 「もっと見る」ボタン
-    if (_currentOffset < _currentResults.length) {
-        const remaining = _currentResults.length - _currentOffset;
-        const btn = document.createElement('button');
-        btn.className = 'show-more-btn';
-        btn.textContent = `さらに表示（残り ${remaining} 件）`;
-        btn.style.cssText = 'display:block;width:100%;padding:10px;margin-top:4px;background:#e3f2fd;border:none;border-radius:4px;font-size:12px;color:#1565c0;cursor:pointer;font-family:inherit;';
-        btn.addEventListener('click', () => {
-            btn.remove();
-            // queryとrootPathを親のinput/scriptから再取得するため属性として保持
-            const q = el.dataset.query;
-            const rp = el.dataset.rootPath;
-            renderPage(el, q, rp, true);
-        });
-        el.dataset.query = query;
-        el.dataset.rootPath = rootPath;
-        el.appendChild(btn);
-    }
-}
-
-// インラインハイライト（escapeHTMLつき）
-function inlineHighlight(text, query) {
-    const escaped = escapeHtml(text);
-    const keywords = query.match(/[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF]{2,}|[a-zA-Z]{3,}|[0-9]{2,}|\S+/g) || [query];
-    let result = escaped;
-    keywords.forEach(kw => {
-        const safe = escapeHtml(kw).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        result = result.replace(new RegExp(safe, 'gi'), m => `<mark style="background:#fff9c4;color:#d32f2f;font-weight:bold;padding:0 1px;">${m}</mark>`);
-    });
-    return result;
-}
-
-function escapeHtml(str) {
-    return String(str || '')
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// ============================================================
+// 公開API
+// ============================================================
+async function initSearchComponent(config) {
+    __engine = new SearchEngine(config);
+    await __engine.init();
 }
