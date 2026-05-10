@@ -258,16 +258,40 @@
 
       const data = await resp.json();
       thinking.classList.remove('thinking');
-      thinking.textContent = data.answer || 'エラーが発生しました。';
+      thinking.innerHTML = parseMarkdown(data.answer || 'エラーが発生しました。');
 
     } catch (err) {
       console.error(err);
       thinking.classList.remove('thinking');
-      thinking.textContent = `通信エラー: ${err.message}\nWorker URLを確認してください。`;
+      thinking.innerHTML = parseMarkdown(`通信エラー: ${err.message}\nWorker URLを確認してください。`);
     }
 
     sendBtn.disabled = false;
     messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function parseMarkdown(text) {
+    if (!text) return '';
+    let html = text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/```([\s\S]*?)```/g, '<pre style="background:#f4f4f4;padding:8px;border-radius:4px;overflow-x:auto;margin:8px 0;"><code style="font-family:monospace;font-size:0.9em;">$1</code></pre>')
+      .replace(/`([^`]+)`/g, '<code style="background:#f4f4f4;padding:2px 4px;border-radius:4px;color:#d32f2f;font-family:monospace;font-size:0.9em;">$1</code>')
+      .replace(/^### (.*$)/gim, '<h3 style="margin:12px 0 4px;font-size:1.05em;color:#333;">$1</h3>')
+      .replace(/^## (.*$)/gim, '<h2 style="margin:16px 0 6px;font-size:1.15em;border-bottom:1px solid #ccc;padding-bottom:2px;color:#222;">$1</h2>')
+      .replace(/^# (.*$)/gim, '<h1 style="margin:20px 0 8px;font-size:1.25em;border-bottom:2px solid #ccc;padding-bottom:2px;color:#111;">$1</h1>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong style="color:#111;">$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      .replace(/^- (.*$)/gim, '<ul><li style="margin-left:20px;">$1</li></ul>')
+      .replace(/^\* (.*$)/gim, '<ul><li style="margin-left:20px;">$1</li></ul>')
+      .replace(/^\d+\. (.*$)/gim, '<ol><li style="margin-left:20px;">$1</li></ol>')
+      .replace(/\n\n/g, '<div style="height:8px;"></div>')
+      .replace(/\n/g, '<br>')
+      .replace(/<\/ul><br><ul>/g, '')
+      .replace(/<\/ul><ul>/g, '')
+      .replace(/<\/ol><br><ol>/g, '')
+      .replace(/<\/ol><ol>/g, '')
+      .replace(/<\/(h1|h2|h3|pre|ul|ol)><br>/g, '</$1>');
+    return html;
   }
 
   function appendMsg(text, cls) {
