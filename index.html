@@ -298,7 +298,7 @@
             <div class="loading-progress-bar" id="searchProgressBar"></div>
         </div>
         <div id="searchStatus">検索インデックスをロード中...</div>
-        
+        <div id="searchFilters" class="search-filters"></div>
         <div id="searchResults" class="search-results">
             <!-- 検索結果がここに表示される -->
         </div>
@@ -498,6 +498,7 @@
                 statusId: 'searchStatus',
                 progressId: 'searchProgressBar',
                 progressContainerId: 'searchProgressContainer',
+                filterContainerId: 'searchFilters',
                 rootPath: './'
             });
         }
