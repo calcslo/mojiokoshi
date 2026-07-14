@@ -1,6 +1,29 @@
 {
-  "generated": "2026-06-11T02:08:01.877174+09:00",
+  "generated": "2026-07-14T17:48:10.532316+09:00",
   "subjects": [
+    {
+      "name": "乳房",
+      "lectures": [
+        {
+          "path": "./html/乳房/052604乳房_index.html",
+          "date": "5月26日4限",
+          "name": "乳房",
+          "speaker": "鰐淵友美"
+        },
+        {
+          "path": "./html/乳房/060203乳房_index.html",
+          "date": "6月2日3限",
+          "name": "乳房",
+          "speaker": "遠山竜也"
+        },
+        {
+          "path": "./html/乳房/060204乳房_index.html",
+          "date": "6月2日4限",
+          "name": "乳房",
+          "speaker": "遠山竜也"
+        }
+      ]
+    },
     {
       "name": "公衆衛生",
       "lectures": [
@@ -379,6 +402,88 @@
           "date": "2月20日3限",
           "name": "循環",
           "speaker": "中村 龍二"
+        }
+      ]
+    },
+    {
+      "name": "女性生殖器",
+      "lectures": [
+        {
+          "path": "./html/女性生殖器/052501女性生殖器_index.html",
+          "date": "5月25日1限",
+          "name": "女性生殖器",
+          "speaker": "伴野千尋"
+        },
+        {
+          "path": "./html/女性生殖器/052502女性生殖器_index.html",
+          "date": "5月25日2限",
+          "name": "女性生殖器",
+          "speaker": "佐藤 剛"
+        },
+        {
+          "path": "./html/女性生殖器/060101女性生殖器_index.html",
+          "date": "6月1日1限",
+          "name": "女性生殖器",
+          "speaker": "西川隆太郎"
+        },
+        {
+          "path": "./html/女性生殖器/060102女性生殖器_index.html",
+          "date": "6月1日2限",
+          "name": "女性生殖器",
+          "speaker": "佐藤 剛"
+        },
+        {
+          "path": "./html/女性生殖器/060801女性生殖器_index.html",
+          "date": "6月8日1限",
+          "name": "女性生殖器",
+          "speaker": "西川隆太郎"
+        },
+        {
+          "path": "./html/女性生殖器/060802女性生殖器_index.html",
+          "date": "6月8日2限",
+          "name": "女性生殖器",
+          "speaker": "荒川敦志"
+        },
+        {
+          "path": "./html/女性生殖器/062201女性生殖器_index.html",
+          "date": "6月22日1限",
+          "name": "女性生殖器",
+          "speaker": "西川隆太郎"
+        }
+      ]
+    },
+    {
+      "name": "妊娠",
+      "lectures": [
+        {
+          "path": "./html/妊娠/062204妊娠_index.html",
+          "date": "6月22日4限",
+          "name": "妊娠",
+          "speaker": "杉浦真弓"
+        },
+        {
+          "path": "./html/妊娠/062901妊娠_index.html",
+          "date": "6月29日1限",
+          "name": "妊娠",
+          "speaker": "西川尚実"
+        },
+        {
+          "path": "./html/妊娠/062902妊娠_index.html",
+          "date": "6月29日2限",
+          "name": "妊娠",
+          "speaker": "後藤志信"
+        },
+        {
+          "path": "./html/妊娠/062904妊娠_index.html",
+          "date": "6月29日4限",
+          "name": "妊娠",
+          "speaker": "小島和寿"
+        },
+        {
+          "path": "./html/妊娠/070603妊娠_index.html",
+          "date": "7月6日3限",
+          "name": "妊娠",
+          "speaker": "北折珠央"
         }
       ]
     },
@@ -788,6 +893,59 @@
       ]
     },
     {
+      "name": "整形",
+      "lectures": [
+        {
+          "path": "./html/整形/051901整形_index.html",
+          "date": "5月19日1限",
+          "name": "整形",
+          "speaker": "多和田 忍"
+        },
+        {
+          "path": "./html/整形/051902整形_index.html",
+          "date": "5月19日2限",
+          "name": "整形",
+          "speaker": "岡本秀貴"
+        },
+        {
+          "path": "./html/整形/052602整形_index.html",
+          "date": "5月26日2限",
+          "name": "整形",
+          "speaker": "宇佐美琢也・井田墨童"
+        },
+        {
+          "path": "./html/整形/060202整形_index.html",
+          "date": "6月2日2限",
+          "name": "整形",
+          "speaker": "武田真輔/米津大貴"
+        },
+        {
+          "path": "./html/整形/060901整形_index.html",
+          "date": "6月9日1限",
+          "name": "整形",
+          "speaker": "吉田雅人"
+        },
+        {
+          "path": "./html/整形/062301整形_index.html",
+          "date": "6月23日1限",
+          "name": "整形",
+          "speaker": "八木 清"
+        },
+        {
+          "path": "./html/整形/063001整形_index.html",
+          "date": "6月30日1限",
+          "name": "整形",
+          "speaker": "坂井宏章"
+        },
+        {
+          "path": "./html/整形/063002整形_index.html",
+          "date": "6月30日2限",
+          "name": "整形",
+          "speaker": "野崎正浩"
+        }
+      ]
+    },
+    {
       "name": "泌尿器",
       "lectures": [
         {
@@ -996,6 +1154,41 @@
       ]
     },
     {
+      "name": "男性生殖器",
+      "lectures": [
+        {
+          "path": "./html/男性生殖器/051803男性生殖器_index.html",
+          "date": "5月18日3限",
+          "name": "男性生殖器",
+          "speaker": "安井 孝周"
+        },
+        {
+          "path": "./html/男性生殖器/051804男性生殖器_index.html",
+          "date": "5月18日4限",
+          "name": "男性生殖器",
+          "speaker": "水野 健太郎"
+        },
+        {
+          "path": "./html/男性生殖器/052504男性生殖器_index.html",
+          "date": "5月25日4限",
+          "name": "男性生殖器",
+          "speaker": "野々村 祝夫"
+        },
+        {
+          "path": "./html/男性生殖器/060104男性生殖器_index.html",
+          "date": "6月1日4限",
+          "name": "男性生殖器",
+          "speaker": "惠谷 俊紀"
+        },
+        {
+          "path": "./html/男性生殖器/060804男性生殖器_index.html",
+          "date": "6月8日4限",
+          "name": "男性生殖器",
+          "speaker": "岩月 正一郎"
+        }
+      ]
+    },
+    {
       "name": "疼痛",
       "lectures": [
         {
@@ -1134,6 +1327,53 @@
           "date": "4月27日3限",
           "name": "",
           "speaker": ""
+        }
+      ]
+    },
+    {
+      "name": "眼科",
+      "lectures": [
+        {
+          "path": "./html/眼科/052001眼科_index.html",
+          "date": "5月20日1限",
+          "name": "眼科",
+          "speaker": "安川"
+        },
+        {
+          "path": "./html/眼科/052002眼科_index.html",
+          "date": "5月20日2限",
+          "name": "眼科",
+          "speaker": "佐藤"
+        },
+        {
+          "path": "./html/眼科/052701眼科_index.html",
+          "date": "5月27日1限",
+          "name": "眼科",
+          "speaker": "杉山"
+        },
+        {
+          "path": "./html/眼科/052702眼科_index.html",
+          "date": "5月27日2限",
+          "name": "眼科",
+          "speaker": "野崎"
+        },
+        {
+          "path": "./html/眼科/052703眼科_index.html",
+          "date": "5月27日3限",
+          "name": "眼科",
+          "speaker": "高柳"
+        },
+        {
+          "path": "./html/眼科/052704眼科_index.html",
+          "date": "5月27日4限",
+          "name": "眼科",
+          "speaker": "玉井(宇野)"
+        },
+        {
+          "path": "./html/眼科/062402眼科_index.html",
+          "date": "6月24日2限",
+          "name": "眼科",
+          "speaker": "安川"
         }
       ]
     },
@@ -1561,6 +1801,47 @@
           "date": "2月18日2限",
           "name": "腎",
           "speaker": "春日井 貴久"
+        }
+      ]
+    },
+    {
+      "name": "血液内科",
+      "lectures": [
+        {
+          "path": "./html/血液内科/061101血液内科_index.html",
+          "date": "6月11日1限",
+          "name": "血液内科",
+          "speaker": "三田貴臣"
+        },
+        {
+          "path": "./html/血液内科/061104血液内科_index.html",
+          "date": "6月11日4限",
+          "name": "血液内科",
+          "speaker": "鈴木伸明"
+        },
+        {
+          "path": "./html/血液内科/062303血液内科_index.html",
+          "date": "6月23日3限",
+          "name": "血液内科",
+          "speaker": "飯田真介"
+        },
+        {
+          "path": "./html/血液内科/062304血液内科_index.html",
+          "date": "6月23日4限",
+          "name": "血液内科",
+          "speaker": "成田朋子"
+        },
+        {
+          "path": "./html/血液内科/062404血液内科_index.html",
+          "date": "6月24日4限",
+          "name": "血液内科",
+          "speaker": "伊藤康彦"
+        },
+        {
+          "path": "./html/血液内科/070103血液内科_index.html",
+          "date": "7月1日3限",
+          "name": "血液内科",
+          "speaker": "李 政樹"
         }
       ]
     },
