@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-16T00:02:28.961206+09:00",
+  "generated": "2026-07-16T01:31:59.525026+09:00",
   "subjects": [
     {
       "name": "乳房",
@@ -962,6 +962,12 @@
           "speaker": "八木 清"
         },
         {
+          "path": "./html/整形/062302整形_index.html",
+          "date": "6月23日2限",
+          "name": "肩・肘の変性疾患",
+          "speaker": "武長徹也"
+        },
+        {
           "path": "./html/整形/063001整形_index.html",
           "date": "6月30日1限",
           "name": "関節リウマチ",
@@ -1217,6 +1223,12 @@
           "speaker": "惠谷 俊紀"
         },
         {
+          "path": "./html/男性生殖器/060803男性生殖器_index.html",
+          "date": "6月8日3限",
+          "name": "Female Urology・神経因性膀胱",
+          "speaker": "窪田 泰江"
+        },
+        {
           "path": "./html/男性生殖器/060804男性生殖器_index.html",
           "date": "6月8日4限",
           "name": "性機能とSTI□",
@@ -1404,6 +1416,12 @@
           "date": "5月27日4限",
           "name": "神経眼科",
           "speaker": "玉井(宇野)"
+        },
+        {
+          "path": "./html/眼科/062401眼科_index.html",
+          "date": "6月24日1限",
+          "name": "全身疾患と眼",
+          "speaker": "榮枝"
         },
         {
           "path": "./html/眼科/062402眼科_index.html",
@@ -1903,10 +1921,22 @@
       "name": "衛生学",
       "lectures": [
         {
+          "path": "./html/衛生学/060401衛生学_index.html",
+          "date": "6月4日1限",
+          "name": "産業保健・産業中毒とその他の職業性疾患(1)-総論",
+          "speaker": "上島"
+        },
+        {
           "path": "./html/衛生学/060402衛生学_index.html",
           "date": "6月4日2限",
           "name": "環境保健(1)-総論",
           "speaker": "伊藤"
+        },
+        {
+          "path": "./html/衛生学/060403衛生学_index.html",
+          "date": "6月4日3限",
+          "name": "産業保健・産業中毒とその他の職業性疾患(2)-有機化学物質",
+          "speaker": "上島"
         },
         {
           "path": "./html/衛生学/060501衛生学_index.html",
@@ -1925,6 +1955,18 @@
           "date": "6月19日1限",
           "name": "環境保健(2)-生活環境の汚染と環境対策",
           "speaker": "伊藤"
+        },
+        {
+          "path": "./html/衛生学/062601衛生学_index.html",
+          "date": "6月26日1限",
+          "name": "保健医療論(1)-社会保障制度1",
+          "speaker": "上島"
+        },
+        {
+          "path": "./html/衛生学/070301衛生学_index.html",
+          "date": "7月3日1限",
+          "name": "保健医療論(3)-保健・医療・福祉・介護",
+          "speaker": "加藤"
         },
         {
           "path": "./html/衛生学/070302衛生学_index.html",
