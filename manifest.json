@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-20T15:04:46.274532+09:00",
+  "generated": "2026-07-20T15:58:47.764741+09:00",
   "subjects": [
     {
       "name": "乳房",
@@ -502,6 +502,12 @@
           "date": "6月29日4限",
           "name": "胎児-胎盤機能検査法・胎児心拍数モニタリング",
           "speaker": "小島和寿"
+        },
+        {
+          "path": "./html/妊娠/070601妊娠_index.html",
+          "date": "7月6日1限",
+          "name": "妊娠合併症1(内分泌、血液凝固、TORCH)",
+          "speaker": "北折珠央"
         },
         {
           "path": "./html/妊娠/070602妊娠_index.html",
@@ -1428,6 +1434,30 @@
           "date": "5月27日4限",
           "name": "神経眼科",
           "speaker": "玉井(宇野)"
+        },
+        {
+          "path": "./html/眼科/060301眼科_index.html",
+          "date": "6月3日1限",
+          "name": "網膜硝子体疾患1",
+          "speaker": "平野"
+        },
+        {
+          "path": "./html/眼科/060302眼科_index.html",
+          "date": "6月3日2限",
+          "name": "網膜硝子体疾患2",
+          "speaker": "森田"
+        },
+        {
+          "path": "./html/眼科/060303眼科_index.html",
+          "date": "6月3日3限",
+          "name": "角結膜疾患",
+          "speaker": "湯口"
+        },
+        {
+          "path": "./html/眼科/060304眼科_index.html",
+          "date": "6月3日4限",
+          "name": "眼科救急",
+          "speaker": "湯口"
         },
         {
           "path": "./html/眼科/062401眼科_index.html",
