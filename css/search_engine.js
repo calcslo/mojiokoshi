@@ -3,9 +3,28 @@
 // ============================================================
 
 const SEMESTER_MAP = {
-    'S1': ['呼吸器', '循環', '救急', '泌尿器', '疼痛', '耳鼻科', '腎', '麻酔'],
-    'S2': ['内分泌', '小児', '消化器', '皮膚', '神経内科', '神経外科', '精神']
+    'S1': ['呼吸器', '循環', '救急', '泌尿器', '疼痛', '耳鼻科', '腎', '麻酔', '形成外科'],
+    'S2': ['内分泌', '小児', '消化器', '皮膚', '神経内科', '神経外科', '精神'],
+    'S3': ['乳房', '公衆衛生', '女性生殖器', '妊娠', '整形', '男性生殖器', '眼科', '血液内科', '衛生学'],
+    'S4': ['感染症', '放射線', '腫瘍学', '膠原病', '輸血移植', '食事栄養']
 };
+
+function getPrimaryDept(item) {
+    const u = item.url || '';
+    const parts = u.split('/');
+    if (parts.length >= 2) {
+        const folder = parts[parts.length - 2];
+        if (folder && folder !== 'html' && folder !== '.') return folder;
+    }
+    if (item.dept) return item.dept;
+    const t = item.title || '';
+    if (t.startsWith('講義ノート：')) {
+        const p = t.replace('講義ノート：', '').trim().split(/\s+/);
+        if (p.length >= 2) return p[1].trim();
+    }
+    return '未分類';
+}
+
 const PAGE_SIZE = 15;
 
 // グローバル状態
@@ -145,20 +164,19 @@ class SearchEngine {
     }
 
     _buildFilters() {
-        // インデックスから診療科を抽出 (URLのフォルダ名を利用)
-        const depts = [...new Set(
-            (this.index || []).map(item => {
-                const u = item.url || '';
-                const parts = u.split('/');
-                return parts.length >= 2 ? parts[parts.length - 2] : null;
-            }).filter(Boolean)
-        )].sort();
+        // インデックスから診療科を抽出
+        const deptsSet = new Set();
+        (this.index || []).forEach(item => {
+            const d = getPrimaryDept(item);
+            if (d && d !== '未分類') deptsSet.add(d);
+        });
+        const depts = Array.from(deptsSet).sort();
 
-        let html = '<div style="font-size:11px;color:#555;margin:8px 0 5px;font-weight:bold;">絞り込み（未選択=全件）</div>';
+        let html = '<div style="font-size:11px;color:#555;margin:8px 0 5px;font-weight:bold;">絞り込み（選択科目を優先表示）</div>';
 
         // セメスター
         html += '<div style="display:flex;gap:12px;margin-bottom:8px;">';
-        ['S1', 'S2'].forEach(s => {
+        ['S1', 'S2', 'S3', 'S4'].forEach(s => {
             html += `<label style="font-size:12px;cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px;">
                        <input type="checkbox" class="filter-sem" value="${s}"> <strong>${s}</strong>
                      </label>`;
@@ -205,30 +223,33 @@ class SearchEngine {
             // フィルター取得
             const activeSems  = [...document.querySelectorAll('.filter-sem:checked')].map(c => c.value);
             const activeDepts = [...document.querySelectorAll('.filter-dept:checked')].map(c => c.value);
+            const hasFilter = activeSems.length > 0 || activeDepts.length > 0;
 
             const scored = this.index
-                .filter(item => {
-                    // 何も選択されていない場合は全件対象
-                    if (activeSems.length === 0 && activeDepts.length === 0) return true;
-                    
-                    const t = item.title || '';
-                    let dept = null;
-                    if (t.startsWith('講義ノート：')) {
-                        const parts = t.replace('講義ノート：', '').split(/\s+/);
-                        dept = parts.length >= 2 ? parts[1].trim() : null;
-                    }
-                    if (!dept) return false;
-
-                    // 診療科直接指定
-                    if (activeDepts.length > 0 && activeDepts.includes(dept)) return true;
-
-                    // セメスター指定
-                    if (activeSems.includes('S1') && SEMESTER_MAP['S1'].includes(dept)) return true;
-                    if (activeSems.includes('S2') && SEMESTER_MAP['S2'].includes(dept)) return true;
-
-                    return false;
-                })
                 .map(item => {
+                    const dept = getPrimaryDept(item);
+                    
+                    let isFilterMatch = true;
+                    if (hasFilter) {
+                        let deptMatch = activeDepts.length > 0 && activeDepts.includes(dept);
+                        let semMatch = false;
+                        if (activeSems.length > 0) {
+                            for (const sem of activeSems) {
+                                if ((SEMESTER_MAP[sem] || []).includes(dept)) {
+                                    semMatch = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (activeDepts.length > 0 && activeSems.length > 0) {
+                            isFilterMatch = deptMatch || semMatch;
+                        } else if (activeDepts.length > 0) {
+                            isFilterMatch = deptMatch;
+                        } else if (activeSems.length > 0) {
+                            isFilterMatch = semMatch;
+                        }
+                    }
+
                     const text  = (item.content || '').toLowerCase();
                     const title = (item.title   || '').toLowerCase();
                     let kwScore = 0;
@@ -239,17 +260,42 @@ class SearchEngine {
                     }
                     kwScore = Math.min(1, kwScore / (keywords.length * 2.5));
 
+                    let baseScore = kwScore;
                     if (queryVector && item.embedding) {
                         let cos = 0;
                         for (let i = 0; i < queryVector.length; i++) cos += queryVector[i] * item.embedding[i];
                         const sem = (cos + 1) / 2;
-                        return { ...item, score: Math.min(1, sem * 0.6 + kwScore * 0.4) };
+                        baseScore = Math.min(1, sem * 0.6 + kwScore * 0.4);
                     }
-                    return { ...item, score: kwScore };
+
+                    // フィルター適合講義には優先ブースト（+0.25）
+                    // フィルター外の講義も完全除外せず、ベーススコア×0.75で保持（他科目からの参考講義として活用）
+                    let finalScore = baseScore;
+                    if (hasFilter) {
+                        if (isFilterMatch) {
+                            finalScore = Math.min(1.0, baseScore + 0.25);
+                        } else {
+                            finalScore = baseScore * 0.75;
+                        }
+                    }
+
+                    return { 
+                        ...item, 
+                        dept, 
+                        isFilterMatch, 
+                        isOtherDept: hasFilter && !isFilterMatch,
+                        score: finalScore,
+                        rawScore: baseScore
+                    };
                 });
 
             this.results = scored
-                .filter(r => r.score > (queryVector ? 0.35 : 0.01))
+                .filter(r => {
+                    if (hasFilter && r.isOtherDept) {
+                        return r.rawScore > 0.42; // 他科目は関連度が高いものをピックアップ
+                    }
+                    return r.score > (queryVector ? 0.35 : 0.01);
+                })
                 .sort((a, b) => b.score - a.score);
 
             this.offset = 0;
@@ -282,8 +328,17 @@ class SearchEngine {
             const a = document.createElement('a');
             a.href = `${rootPath}${item.url}?h=${encodeURIComponent(query)}`;
             a.style.cssText = 'display:block;padding:10px 12px;text-decoration:none;border-bottom:1px solid #eee;';
+
+            const badgeStyle = item.isOtherDept 
+                ? 'background:#fff3e0;color:#e65100;border:1px solid #ffe0b2;' 
+                : 'background:#e3f2fd;color:#1565c0;border:1px solid #bbdefb;';
+            const badgeText = item.isOtherDept ? `他科目参考: ${item.dept}` : item.dept;
+
             a.innerHTML = `
-              <span style="font-weight:bold;font-size:12px;color:#222;display:block;margin-bottom:2px;">${this._hl(item.title||'', query)}</span>
+              <div style="margin-bottom:3px;display:flex;align-items:center;gap:6px;">
+                <span style="font-size:10px;font-weight:bold;padding:1px 6px;border-radius:4px;${badgeStyle}">${badgeText}</span>
+                <span style="font-weight:bold;font-size:12px;color:#222;">${this._hl(item.title||'', query)}</span>
+              </div>
               <div style="font-size:11px;color:#666;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${this._hl(item.content||'', query)}</div>
               <div style="font-size:10px;color:#aaa;margin-top:3px;">一致度: ${Math.round(item.score*100)}%</div>
             `;

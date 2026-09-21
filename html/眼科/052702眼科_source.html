@@ -8,20 +8,6 @@
 <link href="../../css/source.css" rel="stylesheet"/>
 <script defer="" src="../../css/highlight.js"></script>
 <script defer="" src="../../css/search_engine.js"></script>
-<script>
-                window.addEventListener('load', () => {
-                    if (typeof initSearchComponent === 'function') {
-                        initSearchComponent({
-                            inputId: 'sideSearchInput',
-                            resultsId: 'sideSearchResults',
-                            statusId: 'sideSearchStatus',
-                            buttonId: 'sideSearchBtn',
-                            filterContainerId: 'sideSearchFilters',
-                            rootPath: '../../'
-                        });
-                    }
-                });
-            </script>
 <title>原文：5月27日2限 眼科 野崎<br>緑内障</title>
 </head>
 <body>
@@ -32,23 +18,24 @@
 <span></span>
 </div>
 <nav class="side-menu" id="sideMenu" onclick="switchMenu(btn09)">
-<a class="top-return-link" href="../../index.html">
-<svg class="home-icon" viewbox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <a href="../../index.html" class="top-return-link">
+                    <svg class="home-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                     TOPに戻る
                 </a>
-<div class="side-search-container" onclick="event.stopPropagation()">
-<div class="side-search-wrapper">
-<input class="side-search-input" disabled="" id="sideSearchInput" placeholder="全講義を検索..." type="text"/>
-<button class="side-search-btn" id="sideSearchBtn">
-<svg viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
-</button>
-</div>
-<div id="sideSearchStatus" style="font-size:10px; color:#888; margin-top:4px;">準備中...</div>
-<div class="search-filters" id="sideSearchFilters"></div>
-<div class="search-results" id="sideSearchResults" style="max-height:300px; overflow-y:auto; background:white; margin-top:5px; border-radius:8px; border:1px solid #e0e0e0;"></div>
-</div>
+                <div class="side-search-container" onclick="event.stopPropagation()">
+                    <div class="side-search-wrapper">
+                        <input type="text" id="sideSearchInput" class="side-search-input" placeholder="全講義を検索..." disabled>
+                        <button id="sideSearchBtn" class="side-search-btn">
+                            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </div>
+                    <div id="sideSearchStatus" style="font-size:10px;color:#888;margin-top:4px;">準備中...</div>
+                    <div id="sideSearchFilters"></div>
+                    <div id="sideSearchResults" style="display:none;"></div>
+                </div>
 <h2>リンク集</h2>
 
+                
                 
                 
                 
@@ -266,5 +253,21 @@
                     }
                 });
             </script>
+
+        <script>
+        window.addEventListener('load', function() {
+            if (typeof initSearchComponent === 'function') {
+                initSearchComponent({
+                    inputId: 'sideSearchInput',
+                    resultsId: 'sideSearchResults',
+                    statusId: 'sideSearchStatus',
+                    buttonId: 'sideSearchBtn',
+                    filterContainerId: 'sideSearchFilters',
+                    rootPath: '../../'
+                });
+            }
+        });
+        </script>
+    <script src="../../css/chat_widget.js" defer></script>
 </body>
 </html>

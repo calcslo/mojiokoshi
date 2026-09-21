@@ -8,21 +8,7 @@
             <link rel="stylesheet" href="../../css/index.css">
             <script src="../../css/highlight.js" defer></script>
             <script src="../../css/search_engine.js" defer></script>
-            <script>
-                window.addEventListener('load', () => {
-                    if (typeof initSearchComponent === 'function') {
-                        initSearchComponent({
-                            inputId: 'sideSearchInput',
-                            resultsId: 'sideSearchResults',
-                            statusId: 'sideSearchStatus',
-                            buttonId: 'sideSearchBtn',
-                            filterContainerId: 'sideSearchFilters',
-                            rootPath: '../../'
-                        });
-                    }
-                });
-            </script>
-            <title>講義ノート：7月8日4限 血液内科 鈴木智貴<br>わかるシリーズ②:免疫と血液内科学 〜Immunology and Hematology〜</title> 
+<title>講義ノート：7月8日4限 血液内科 鈴木智貴<br>わかるシリーズ②:免疫と血液内科学 〜Immunology and Hematology〜</title> 
         </head> 
         <body>
             <div id="notice-message" class="notice-bar">リンク先が準備されていません</div>
@@ -44,11 +30,12 @@
                             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                         </button>
                     </div>
-                    <div id="sideSearchStatus" style="font-size:10px; color:#888; margin-top:4px;">準備中...</div>
-                    <div id="sideSearchFilters" class="search-filters"></div>
-                    <div id="sideSearchResults" class="search-results" style="max-height:300px; overflow-y:auto; background:white; margin-top:5px; border-radius:8px; border:1px solid #e0e0e0;"></div>
+                    <div id="sideSearchStatus" style="font-size:10px;color:#888;margin-top:4px;">準備中...</div>
+                    <div id="sideSearchFilters"></div>
+                    <div id="sideSearchResults" style="display:none;"></div>
                 </div>
                 <h2>リンク集</h2>
+                
                 
                 
                 
@@ -277,6 +264,22 @@
                     }
                 });
             </script>
-        </body> 
+        
+        <script>
+        window.addEventListener('load', function() {
+            if (typeof initSearchComponent === 'function') {
+                initSearchComponent({
+                    inputId: 'sideSearchInput',
+                    resultsId: 'sideSearchResults',
+                    statusId: 'sideSearchStatus',
+                    buttonId: 'sideSearchBtn',
+                    filterContainerId: 'sideSearchFilters',
+                    rootPath: '../../'
+                });
+            }
+        });
+        </script>
+    <script src="../../css/chat_widget.js" defer></script>
+</body> 
         </html>
         

@@ -115,6 +115,8 @@
         <option value="">全セメスター</option>
         <option value="S1">S1</option>
         <option value="S2">S2</option>
+        <option value="S3">S3</option>
+        <option value="S4">S4</option>
       </select>
       <select id="chat-filter-dept" style="font-size: 11px; padding: 4px; border-radius: 4px; border: 1px solid #ccc; outline: none; flex: 1;">
         <option value="">全診療科</option>
@@ -132,6 +134,29 @@
 
   document.body.appendChild(fab);
   document.body.appendChild(win);
+
+  const SEMESTER_MAP = {
+    'S1': ['呼吸器', '循環', '救急', '泌尿器', '疼痛', '耳鼻科', '腎', '麻酔', '形成外科'],
+    'S2': ['内分泌', '小児', '消化器', '皮膚', '神経内科', '神経外科', '精神'],
+    'S3': ['乳房', '公衆衛生', '女性生殖器', '妊娠', '整形', '男性生殖器', '眼科', '血液内科', '衛生学'],
+    'S4': ['感染症', '放射線', '腫瘍学', '膠原病', '輸血移植', '食事栄養']
+  };
+
+  function getPrimaryDept(item) {
+    const u = item.url || '';
+    const parts = u.split('/');
+    if (parts.length >= 2) {
+      const folder = parts[parts.length - 2];
+      if (folder && folder !== 'html' && folder !== '.') return folder;
+    }
+    if (item.dept) return item.dept;
+    const t = item.title || '';
+    if (t.startsWith('講義ノート：')) {
+      const p = t.replace('講義ノート：', '').trim().split(/\s+/);
+      if (p.length >= 2) return p[1].trim();
+    }
+    return '未分類';
+  }
 
   // === イベント ===
   fab.addEventListener('click', async () => {
@@ -167,11 +192,12 @@
   function updateDeptFilter() {
     const deptSelect = document.getElementById('chat-filter-dept');
     if (!window._searchIndex || deptSelect.options.length > 1) return;
-    const depts = [...new Set(window._searchIndex.map(item => {
-      const u = item.url || '';
-      const parts = u.split('/');
-      return parts.length >= 2 ? parts[parts.length - 2] : null;
-    }).filter(Boolean))].sort();
+    const deptsSet = new Set();
+    window._searchIndex.forEach(item => {
+      const d = getPrimaryDept(item);
+      if (d && d !== '未分類') deptsSet.add(d);
+    });
+    const depts = Array.from(deptsSet).sort();
     depts.forEach(d => {
       const opt = document.createElement('option');
       opt.value = d;
@@ -208,40 +234,55 @@
       if (window._searchIndex && window._embedder) {
         const output = await window._embedder(`query: ${q}`, { pooling: 'mean', normalize: true });
         const qv = Array.from(output.data);
-        const SEMESTER_MAP = {
-          'S1': ['呼吸器', '循環', '救急', '泌尿器', '疼痛', '耳鼻科', '腎', '麻酔'],
-          'S2': ['内分泌', '小児', '消化器', '皮膚', '神経内科', '神経外科', '精神']
-        };
         const activeSem = document.getElementById('chat-filter-sem').value;
         const activeDept = document.getElementById('chat-filter-dept').value;
+        const hasFilter = Boolean(activeSem || activeDept);
 
-        const filteredIndex = window._searchIndex.filter(item => {
-          if (!activeSem && !activeDept) return true;
-          const t = item.title || '';
-          let dept = null;
-          if (t.startsWith('講義ノート：')) {
-            const parts = t.replace('講義ノート：', '').split(/\s+/);
-            dept = parts.length >= 2 ? parts[1].trim() : null;
-          }
-          if (!dept) return false;
-          if (activeDept && activeDept !== dept) return false;
-          if (activeSem && !SEMESTER_MAP[activeSem].includes(dept)) return false;
-          return true;
-        });
-
-        const top = filteredIndex
-          .map(item => {
-            let s = 0;
+        // 全アイテムのスコアリング
+        const scored = window._searchIndex.map(item => {
+          const dept = getPrimaryDept(item);
+          let s = 0;
+          if (item.embedding) {
             for (let i = 0; i < qv.length; i++) s += qv[i] * item.embedding[i];
-            return { ...item, score: (s + 1) / 2 };
-          })
-          .filter(r => r.score > 0.45)
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 15);
+          }
+          const score = (s + 1) / 2;
+
+          let isFilterMatch = true;
+          if (hasFilter) {
+            let deptMatch = activeDept && activeDept === dept;
+            let semMatch = activeSem && (SEMESTER_MAP[activeSem] || []).includes(dept);
+            if (activeDept && activeSem) isFilterMatch = deptMatch || semMatch;
+            else if (activeDept) isFilterMatch = deptMatch;
+            else if (activeSem) isFilterMatch = semMatch;
+          }
+
+          return { ...item, dept, score, isFilterMatch };
+        }).filter(r => r.score > 0.42);
+
+        let top = [];
+        if (hasFilter) {
+          // フィルター指定科目を優先的に最大10件取得
+          const priorityItems = scored
+            .filter(r => r.isFilterMatch)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 10);
+          
+          // 他科目からも関連性の高い講義（スコア>0.48）を最大5件柔軟に取り込む
+          const otherItems = scored
+            .filter(r => !r.isFilterMatch && r.score > 0.48)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 5);
+
+          top = [...priorityItems, ...otherItems].sort((a, b) => b.score - a.score);
+        } else {
+          // フィルターなしの場合はスコア順に上位15件
+          top = scored.sort((a, b) => b.score - a.score).slice(0, 15);
+        }
 
         if (top.length > 0) {
-          context = top.map(r => `【${r.title}】\n${r.content}`).join('\n\n---\n\n');
-          contextDesc = `関連講義 ${top.length}件参照中`;
+          context = top.map(r => `【講義資料（科目：${r.dept}）】\n講義名: ${r.title}\n${r.content}`).join('\n\n---\n\n');
+          const deptsUsed = [...new Set(top.map(r => r.dept))].join(', ');
+          contextDesc = `参照講義: ${top.length}件 (${deptsUsed})`;
         }
       } else {
         contextDesc = '（検索インデックス未ロード）';
@@ -249,11 +290,18 @@
 
       contextInfoEl.textContent = contextDesc;
 
+      // 一般知識の活用とソース明記を義務付けるプロンプト指示
+      const promptInstruction = `\n\n【回答ルール】\n` +
+        `1. 提供された【講義資料】の内容を最大限活用し、資料にない背景や解説はあなたの一般的な医学知識も交えて網羅的に回答してください。\n` +
+        `2. 回答内の各項目について、情報ソースを明確に区別して記載してください：\n` +
+        `   - 講義資料に基づく内容は、「【講義（○○科）】」のように科目名を明記してください。\n` +
+        `   - 講義資料に記載がなく一般医学知識から解説した内容は、「【一般知識】」と明記してください。`;
+
       // --- Cloudflare Worker に送信 ---
       const resp = await fetch(WORKER_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q, context })
+        body: JSON.stringify({ question: q + promptInstruction, context })
       });
 
       const data = await resp.json();

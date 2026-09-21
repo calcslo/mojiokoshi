@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-22T14:18:37.818836+09:00",
+  "generated": "2026-09-22T02:53:14.883200",
   "subjects": [
     {
       "name": "乳房",
@@ -1349,13 +1349,13 @@
         {
           "path": "./html/皮膚/040603皮膚_index.html",
           "date": "4月6日3限",
-          "name": "040603皮膚",
+          "name": "皮膚",
           "speaker": ""
         },
         {
           "path": "./html/皮膚/040604皮膚_index.html",
           "date": "4月6日4限",
-          "name": "040604皮膚",
+          "name": "皮膚",
           "speaker": ""
         },
         {
@@ -1373,13 +1373,13 @@
         {
           "path": "./html/皮膚/041303皮膚_index.html",
           "date": "4月13日3限",
-          "name": "041303皮膚",
+          "name": "皮膚",
           "speaker": ""
         },
         {
           "path": "./html/皮膚/041304皮膚_index.html",
           "date": "4月13日4限",
-          "name": "041304皮膚",
+          "name": "皮膚",
           "speaker": ""
         },
         {
@@ -1397,7 +1397,7 @@
         {
           "path": "./html/皮膚/042003皮膚_index.html",
           "date": "4月20日3限",
-          "name": "042003皮膚",
+          "name": "皮膚",
           "speaker": ""
         },
         {
@@ -1415,7 +1415,7 @@
         {
           "path": "./html/皮膚/042703皮膚_index.html",
           "date": "4月27日3限",
-          "name": "042703皮膚",
+          "name": "皮膚",
           "speaker": ""
         }
       ]
