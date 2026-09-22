@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-23T02:03:08.617162+09:00",
+  "generated": "2026-09-23T05:56:52.017871+09:00",
   "subjects": [
     {
       "name": "乳房",
@@ -903,10 +903,58 @@
       "name": "感染症",
       "lectures": [
         {
+          "path": "./html/感染症/083101感染症_index.html",
+          "date": "8月31日1限",
+          "name": "感染症の診かた",
+          "speaker": "伊東直哉"
+        },
+        {
+          "path": "./html/感染症/083102感染症_index.html",
+          "date": "8月31日2限",
+          "name": "小児感染症",
+          "speaker": "伊藤健太"
+        },
+        {
+          "path": "./html/感染症/090101感染症_index.html",
+          "date": "9月1日1限",
+          "name": "尿路感染症",
+          "speaker": "伊東直哉"
+        },
+        {
+          "path": "./html/感染症/090102感染症_index.html",
+          "date": "9月1日2限",
+          "name": "呼吸器感染症",
+          "speaker": "小野宏"
+        },
+        {
+          "path": "./html/感染症/090701感染症_index.html",
+          "date": "9月7日1限",
+          "name": "抗菌薬の使い方",
+          "speaker": "堀田康弘"
+        },
+        {
+          "path": "./html/感染症/090801感染症_index.html",
+          "date": "9月8日1限",
+          "name": "消化器感染症、中枢神経感染症",
+          "speaker": "古谷賢人"
+        },
+        {
           "path": "./html/感染症/090802感染症_index.html",
           "date": "9月8日2限",
           "name": "循環器感染症、骨・関節の感染症、",
           "speaker": "古谷賢人"
+        },
+        {
+          "path": "./html/感染症/091401感染症_index.html",
+          "date": "9月14日1限",
+          "name": "皮膚・軟部組織感染症、中枢神経感染症",
+          "speaker": "武藤義和"
+        },
+        {
+          "path": "./html/感染症/091402感染症_index.html",
+          "date": "9月14日2限",
+          "name": "HIV感染症",
+          "speaker": "郭悠"
         }
       ]
     },
@@ -914,10 +962,76 @@
       "name": "放射線",
       "lectures": [
         {
+          "path": "./html/放射線/082801放射線_index.html",
+          "date": "8月28日1限",
+          "name": "X線・CT・MRIの基礎 放射線総論",
+          "speaker": "樋渡昭雄"
+        },
+        {
+          "path": "./html/放射線/082802放射線_index.html",
+          "date": "8月28日2限",
+          "name": "神経画像診断",
+          "speaker": "樋渡昭雄"
+        },
+        {
+          "path": "./html/放射線/082803放射線_index.html",
+          "date": "8月28日3限",
+          "name": "放射線治療総論",
+          "speaker": "富田夏夫"
+        },
+        {
+          "path": "./html/放射線/082804放射線_index.html",
+          "date": "8月28日4限",
+          "name": "放射線治療各論2",
+          "speaker": "富田夏夫"
+        },
+        {
           "path": "./html/放射線/090401放射線_index.html",
           "date": "9月4日1限",
           "name": "胸部画像診断",
           "speaker": "柴田峻佑"
+        },
+        {
+          "path": "./html/放射線/090402放射線_index.html",
+          "date": "9月4日2限",
+          "name": "IVR2",
+          "speaker": "鈴木一史"
+        },
+        {
+          "path": "./html/放射線/090403放射線_index.html",
+          "date": "9月4日3限",
+          "name": "IVR1",
+          "speaker": "太田賢吾"
+        },
+        {
+          "path": "./html/放射線/090404放射線_index.html",
+          "date": "9月4日4限",
+          "name": "乳腺画像診断",
+          "speaker": "浦野みすぎ"
+        },
+        {
+          "path": "./html/放射線/091101放射線_index.html",
+          "date": "9月11日1限",
+          "name": "造影剤",
+          "speaker": "河合辰哉"
+        },
+        {
+          "path": "./html/放射線/091102放射線_index.html",
+          "date": "9月11日2限",
+          "name": "泌尿生殖器画像診断",
+          "speaker": "木曽原昌也"
+        },
+        {
+          "path": "./html/放射線/091801放射線_index.html",
+          "date": "9月18日1限",
+          "name": "核医学",
+          "speaker": "川口毅恒"
+        },
+        {
+          "path": "./html/放射線/091802放射線_index.html",
+          "date": "9月18日2限",
+          "name": "エコーの基本/小児画像診断",
+          "speaker": "中川基生"
         },
         {
           "path": "./html/放射線/091803放射線_index.html",
@@ -1956,10 +2070,70 @@
       "name": "腫瘍学",
       "lectures": [
         {
+          "path": "./html/腫瘍学/083103腫瘍学_index.html",
+          "date": "8月31日3限",
+          "name": "Active learning （1）",
+          "speaker": "木下/小松"
+        },
+        {
+          "path": "./html/腫瘍学/090203腫瘍学_index.html",
+          "date": "9月2日3限",
+          "name": "がん診療における現状と諸問題（倫理を含む）",
+          "speaker": "安藤 正志"
+        },
+        {
+          "path": "./html/腫瘍学/090204腫瘍学_index.html",
+          "date": "9月2日4限",
+          "name": "抗がん剤の薬物動態・薬力学",
+          "speaker": "前田 徹"
+        },
+        {
+          "path": "./html/腫瘍学/090703腫瘍学_index.html",
+          "date": "9月7日3限",
+          "name": "がんの細胞生物学",
+          "speaker": "近藤 豊"
+        },
+        {
+          "path": "./html/腫瘍学/090704腫瘍学_index.html",
+          "date": "9月7日4限",
+          "name": "癌のゲノミクス",
+          "speaker": "三田 貴臣"
+        },
+        {
           "path": "./html/腫瘍学/090902腫瘍学_index.html",
           "date": "9月9日2限",
           "name": "緩和ケア",
           "speaker": "鈴木 奈々"
+        },
+        {
+          "path": "./html/腫瘍学/090903腫瘍学_index.html",
+          "date": "9月9日3限",
+          "name": "がんの放射線治療",
+          "speaker": "富田 夏夫"
+        },
+        {
+          "path": "./html/腫瘍学/090904腫瘍学_index.html",
+          "date": "9月9日4限",
+          "name": "がんの手術療法",
+          "speaker": "松尾 洋一"
+        },
+        {
+          "path": "./html/腫瘍学/091403腫瘍学_index.html",
+          "date": "9月14日3限",
+          "name": "がんの病理診断",
+          "speaker": "高橋 智"
+        },
+        {
+          "path": "./html/腫瘍学/091603腫瘍学_index.html",
+          "date": "9月16日3限",
+          "name": "がんの分子標的療法/免疫療法",
+          "speaker": "吉田 達哉"
+        },
+        {
+          "path": "./html/腫瘍学/091604腫瘍学_index.html",
+          "date": "9月16日4限",
+          "name": "がん薬物療法と支持療法（希少・難治・高齢者がん含む）",
+          "speaker": "木下 史緒理"
         }
       ]
     },
@@ -1973,10 +2147,46 @@
           "speaker": "山邉 徹"
         },
         {
+          "path": "./html/膠原病/082704膠原病_index.html",
+          "date": "8月27日4限",
+          "name": "関節リウマチ、脊椎関節炎、成人スチル病、結晶誘発性関節炎",
+          "speaker": "爲近真也"
+        },
+        {
           "path": "./html/膠原病/090303膠原病_index.html",
           "date": "9月3日3限",
           "name": "血管炎症候群、ベーチェット病、抗リン脂質抗体症候群",
           "speaker": "難波大夫"
+        },
+        {
+          "path": "./html/膠原病/090304膠原病_index.html",
+          "date": "9月3日4限",
+          "name": "全身性エリテマトーデス、シェーグレン症候群、線維筋痛症",
+          "speaker": "前田伸治"
+        },
+        {
+          "path": "./html/膠原病/091003膠原病_index.html",
+          "date": "9月10日3限",
+          "name": "リウマチ性疾患の診断に必要な診察や検査",
+          "speaker": "難波大夫"
+        },
+        {
+          "path": "./html/膠原病/091004膠原病_index.html",
+          "date": "9月10日4限",
+          "name": "リウマチ性疾患の治療",
+          "speaker": "前田伸治"
+        },
+        {
+          "path": "./html/膠原病/091703膠原病_index.html",
+          "date": "9月17日3限",
+          "name": "リウマチ性疾患の検討1（グループ発表）",
+          "speaker": "爲近真也"
+        },
+        {
+          "path": "./html/膠原病/091704膠原病_index.html",
+          "date": "9月17日4限",
+          "name": "リウマチ性疾患の検討2（グループ発表）",
+          "speaker": "爲近真也"
         }
       ]
     },
@@ -2126,10 +2336,34 @@
       "name": "輸血移植",
       "lectures": [
         {
+          "path": "./html/輸血移植/090104輸血移植_index.html",
+          "date": "9月1日4限",
+          "name": "適正輸血と輸血合併症・副作用",
+          "speaker": "李 政樹"
+        },
+        {
+          "path": "./html/輸血移植/090201輸血移植_index.html",
+          "date": "9月2日1限",
+          "name": "臓器移植総論と臓器移植に関わる法律",
+          "speaker": "李 政樹"
+        },
+        {
+          "path": "./html/輸血移植/090202輸血移植_index.html",
+          "date": "9月2日2限",
+          "name": "移植免疫と細胞治療・合併症",
+          "speaker": "李 政樹"
+        },
+        {
           "path": "./html/輸血移植/090803輸血移植_index.html",
           "date": "9月8日3限",
           "name": "B型肝炎ウイルス感染要因と再活性化",
           "speaker": "松浦健太郎"
+        },
+        {
+          "path": "./html/輸血移植/091504輸血移植_index.html",
+          "date": "9月15日4限",
+          "name": "血液浄化療法",
+          "speaker": "田村哲也"
         }
       ]
     },
@@ -2149,10 +2383,34 @@
           "speaker": "山下 純世"
         },
         {
+          "path": "./html/食事栄養/090301食事栄養_index.html",
+          "date": "9月3日1限",
+          "name": "糖尿病・肥満症に対する食事療法",
+          "speaker": "田中智洋"
+        },
+        {
+          "path": "./html/食事栄養/090302食事栄養_index.html",
+          "date": "9月3日2限",
+          "name": "総合科学としての分子病態栄養学",
+          "speaker": "田中智洋"
+        },
+        {
           "path": "./html/食事栄養/091001食事栄養_index.html",
           "date": "9月10日1限",
           "name": "小児輸液管理",
           "speaker": "高木大輔"
+        },
+        {
+          "path": "./html/食事栄養/091002食事栄養_index.html",
+          "date": "9月10日2限",
+          "name": "慢性腎不全に対する食事療法",
+          "speaker": "濱野高行"
+        },
+        {
+          "path": "./html/食事栄養/091702食事栄養_index.html",
+          "date": "9月17日2限",
+          "name": "消化器外科術後の栄養障害",
+          "speaker": "土岐祐一郎"
         }
       ]
     },
